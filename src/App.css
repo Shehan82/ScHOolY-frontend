@@ -8,30 +8,40 @@
   display: flex;
   flex-direction: column;
   min-width: 1000px;
+  min-height: 800px;
+  background-color: #1c1f25;
+  color: white;
+  
+  
 }
 
 .App__bodyContainer
 {
   display: flex;
-  height: ;
+  height: 94vh;
 }
 
 .App__header
 {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 60px;
+  background-color: #282b34;
+  border-bottom: 1px solid black;
+  
+  
 }
 
 .App__sideBar
 {
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   flex: 0.125;
   min-width: 200px;
+  background-color: #282b34;
 }
 
 .App__body
 {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   flex: 0.875;
   overflow-y: auto;
 }
