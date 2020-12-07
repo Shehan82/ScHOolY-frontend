@@ -1,0 +1,12 @@
+.Grade__container
+{
+    margin-top: 20px;
+    /* border: 2px solid white; */
+    /* background-color: rgb(30, 30, 30, 0.2); */
+    
+}
+
+.Grade__container:hover
+{
+    background-color: rgb(109, 108, 112);
+}
