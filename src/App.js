@@ -10,6 +10,7 @@ import Test2 from './components/Test2';
 
 
 function App() {
+  const arr = [1,2,3,4,5];
   return (
     <Router>
     <div className="App">
@@ -22,20 +23,19 @@ function App() {
           <div className="App__sideBar">
             <h3>gRadeS</h3><br/>
            
-            <Link to="/grade2">
+            <Link style={{textDecoration:"none"}} to="/grade2">
             <Grade/>
             </Link>
-            
-            <Grade/>
-            <Grade/>
-            <Grade/>
+            {arr.map(num => (
+                <Grade year={num}/>
+              ))}
          
           </div>
 
 
 
           <div className="App__body">
-           
+              
               <Switch>
               <Route path="/" exact component={Home}/>
               <Route path="/grade1" component={Test1}/>
