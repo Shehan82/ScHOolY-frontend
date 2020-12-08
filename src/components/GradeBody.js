@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Class from './Class';
 
 function Test1({match}) {
     
@@ -8,6 +9,8 @@ function Test1({match}) {
     return (
         <div>
             <h3>Grade {match.params.year} </h3>
+
+            <Class/>
         </div>
     )
 }
