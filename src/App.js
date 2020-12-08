@@ -1,10 +1,10 @@
 import './App.css';
 import {Button} from '@material-ui/core';
-import Grade from './components/Grade';
+import SidebarGrade from './components/SidebarGrade';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from './components/Home';
-import Test1 from './components/Test1';
-import Test2 from './components/Test2';
+import GradeBody from './components/GradeBody';
+
 
 
 
@@ -22,12 +22,10 @@ function App() {
         <div className="App__bodyContainer">
           <div className="App__sideBar">
             <h3>gRadeS</h3><br/>
-           
-            <Link style={{textDecoration:"none"}} to="/grade2">
-            <Grade/>
-            </Link>
             {arr.map(num => (
-                <Grade year={num}/>
+              <Link style={{textDecoration:"none"}} to={`/grade/${num}`}>
+                <SidebarGrade year={num}/>
+              </Link>
               ))}
          
           </div>
@@ -38,8 +36,8 @@ function App() {
               
               <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/grade1" component={Test1}/>
-              <Route path="/grade2" component={Test2}/>
+              <Route path="/grade/:year" component={GradeBody}/>
+              
             </Switch>
             {/* <Home/>
             <Test1/>

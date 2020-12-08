@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from '@material-ui/core';
-import '../css/Grade.css';
+import '../css/SidebarGrade.css';
 
 function Grade({year}) {
     return (
