@@ -21,7 +21,18 @@ function App() {
 
         <div className="App__bodyContainer">
           <div className="App__sideBar">
-            <h3>gRadeS</h3><br/>
+
+            <div className="App__sideBarHeader">
+            <h3>Menu</h3>
+            </div>
+
+            <Link style={{textDecoration:"none"}} to='/'>
+              <div className="App__sideBarHome">
+                <Button style={{color:"white", width:"100%"}}>Home</Button>
+              </div>
+            </Link>
+            
+            
             {arr.map(num => (
               <Link style={{textDecoration:"none"}} to={`/grade/${num}`}>
                 <SidebarGrade year={num}/>

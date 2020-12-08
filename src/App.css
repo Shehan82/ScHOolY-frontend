@@ -7,7 +7,7 @@
 {
   display: flex;
   flex-direction: column;
-  min-width: 1000px;
+  min-width: 1250px;
   min-height: 800px;
   background-color: #1c1f25;
   color: white;
@@ -48,8 +48,23 @@
 
 .App__body
 {
-  /* border: 2px solid red; */
-  flex: 0.875;
-  overflow-y: auto;
-  padding: 20px;
+  /* border: 2px solid white; */
+  flex: 0.9;
+  overflow-y: auto; 
+  padding: 10px 40px 40px 40px;
+
+}
+
+.App__sideBarHeader
+{
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+.App__sideBarHome
+{
+  margin-top: 20px;
+}
+.App__sideBarHome:hover
+{
+  background-color: rgb(109, 108, 112);
 }

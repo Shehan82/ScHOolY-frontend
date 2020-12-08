@@ -5,6 +5,7 @@ import '../css/SidebarGrade.css';
 function Grade({year}) {
     return (
         <div className="Grade__container">
+            
             <Button style={{color:"white", width:"100%"}}>Grade {year}</Button>
         </div>
     )

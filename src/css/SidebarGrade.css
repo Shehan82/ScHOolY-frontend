@@ -6,6 +6,11 @@
     
 }
 
+.Grade__container:focus
+{
+    background-color: rgb(109, 108, 112);
+}
+
 .Grade__container:hover
 {
     background-color: rgb(109, 108, 112);

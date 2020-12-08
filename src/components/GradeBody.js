@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Class from './Class';
+import '../css/GradeBody.css'
 
 function Test1({match}) {
     
@@ -8,10 +9,23 @@ function Test1({match}) {
     }, [])
     return (
         <div>
-            <h3>Grade {match.params.year} </h3>
-
+            <div className="GradeBody__header">
+                <h3>Grade {match.params.year}</h3>
+            </div>
+           
+            <div className="GradeBody">
+            {/* <h3>Grade {match.params.year} </h3> */}
+            
             <Class/>
+            <Class/>
+            <Class/>
+            <Class/>
+            <Class/>
+            
+
+            </div>
         </div>
+        
     )
 }
 
