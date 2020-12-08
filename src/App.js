@@ -10,7 +10,13 @@ import GradeBody from './components/GradeBody';
 
 
 function App() {
-  const arr = [1,2,3,4,5];
+  // const arr = [1,2,3,4,5];
+  const arr = {
+    1:["A","B","C","D","E"],
+    2:["A","B","C"],
+    3:["A","B","C","D"],
+    4:["A","B","C","D"],
+  }
   return (
     <Router>
     <div className="App">
@@ -26,16 +32,18 @@ function App() {
             <h3>Menu</h3>
             </div>
 
-            <Link style={{textDecoration:"none"}} to='/'>
+            
               <div className="App__sideBarHome">
+              <Link style={{textDecoration:"none"}} to='/'>
                 <Button style={{color:"white", width:"100%"}}>Home</Button>
+                </Link>
               </div>
-            </Link>
             
             
-            {arr.map(num => (
-              <Link style={{textDecoration:"none"}} to={`/grade/${num}`}>
-                <SidebarGrade year={num}/>
+            
+            {Object.keys(arr).map((key) => (
+              <Link style={{textDecoration:"none"}} to={`/grade/${[key, arr[key]]}`}>
+                <SidebarGrade year={key} />
               </Link>
               ))}
          
@@ -48,7 +56,7 @@ function App() {
               <Switch>
               <Route path="/" exact component={Home}/>
               <Route path="/grade/:year" component={GradeBody}/>
-              
+            
             </Switch>
             {/* <Home/>
             <Test1/>
