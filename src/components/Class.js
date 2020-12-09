@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { SignalWifi1BarLockSharp } from '@material-ui/icons';
 import '../css/Class.css'
 
-function Class({cls}) {
+function Class({classRoom}) {
 
     const useStyles = makeStyles({
         root: {
@@ -43,7 +43,7 @@ function Class({cls}) {
 
                 <CardContent >
                     <Typography  gutterBottom variant="h5" component="h2">
-                        Class {cls}
+                        Class {classRoom}
                     </Typography>
                     <Typography  variant="body2"  component="p">
                        class teacher : Mrs. Shyamalee

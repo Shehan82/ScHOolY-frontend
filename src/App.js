@@ -6,14 +6,14 @@ import Home from './components/Home';
 import GradeBody from './components/GradeBody';
 import { useState } from 'react';
 import HomeIcon from '@material-ui/icons/Home';
-import ClassInside from './components/ClassInside';
+import ClassInside from './components/ClassInside'
 
 
 
 
 
 function App() {
-  // const arr = [1,2,3,4,5];
+   const arr1 = [1,2,3,4,5];
   const arr = {
     1:["A","B","C","D","E"],
     2:["A","B","C"],
@@ -73,12 +73,28 @@ function App() {
               </div>
             
             
-          
-              {Object.keys(arr).map((key) => (
+               
+              {/* {Object.keys(arr).map((key) => (
               <Link style={{textDecoration:"none"}} to={`/grade/${[key, arr[key]]}`}>
                <button onClick={(e)=>{
                  setActive({active: e.target.value })
-               }} value={key} className={active.active === key ? 'active' : 'notActive'}>GRADE {key}</button>
+                 console.log(e.target.value)
+                 console.log(active.active);
+                 console.log(key);
+                 console.log(active.active === key)
+               }} value={key} className={active.active === key ? console.log("meka") : 'notActive'}>GRADE {key}</button> */}
+
+              {arr1.map((key) => (
+                <Link style={{textDecoration:"none"}} to={`/grade/${key}`}>
+               <button onClick={(e)=>{
+                 setActive({active: e.target.value })
+                //  console.log(e.target.value)
+                //  console.log(active.active);
+                //  console.log(key);
+                //  console.log(arr1.map(String))
+                //  console.log(Object.keys(arr))
+
+               }} value={key}  className={parseInt(active.active) === key ? 'active' : 'notActive'}>GRADE {key}</button>
 
               </Link>
               ))}
@@ -92,7 +108,7 @@ function App() {
           <div className="App__body">
 
                 <Breadcrumbs aria-label="breadcrumb">
-                    <Link color="inherit" href="/" onClick={handleClick}>
+                    <Link to='/grade/year/class'>
                       Material-UI
                     </Link>
                     <Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
@@ -110,7 +126,8 @@ function App() {
               
               <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/grade/:year" component={GradeBody}/>
+              <Route exact  path="/grade/:year" component={GradeBody}/>
+              <Route path="/grade/:year/:class"  component={ClassInside}/>
             
             </Switch>
             {/* <Home/>
