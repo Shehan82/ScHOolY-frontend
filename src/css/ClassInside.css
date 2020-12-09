@@ -1,0 +1,29 @@
+.ClassInside__headerContainer
+{
+    display: flex;
+}
+.ClassInside__headerGrade
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
+
+.ClassInside__headerSlash
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px; 
+    margin-bottom: 20px;
+}
+
+.ClassInside__headerClass
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
