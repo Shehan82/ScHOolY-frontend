@@ -19,12 +19,12 @@ function GradeBody({match}) {
       
         <div>
             <div className="GradeBody__header">
-             <h3>Grade {match.params.year}</h3>
+             <h3>Grade {match.params.grade}</h3>
             </div>
            
             <div className="GradeBody">
                 {classes.map(cls => (
-                    <Link to={`/grade/${match.params.year}/${cls}`}>
+                    <Link style={{textDecoration:"none"}} to={`/grade/${match.params.grade}/${cls}`}>
                       <Class classRoom={cls}/>
                    </Link>
                 ))}

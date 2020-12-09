@@ -107,7 +107,7 @@ function App() {
 
           <div className="App__body">
 
-                <Breadcrumbs aria-label="breadcrumb">
+                {/* <Breadcrumbs aria-label="breadcrumb">
                     <Link to='/grade/year/class'>
                       Material-UI
                     </Link>
@@ -122,17 +122,14 @@ function App() {
                     >
                       Breadcrumb
                     </Link>
-                </Breadcrumbs>
+                </Breadcrumbs> */}
               
               <Switch>
               <Route path="/" exact component={Home}/>
-              <Route exact  path="/grade/:year" component={GradeBody}/>
-              <Route path="/grade/:year/:class"  component={ClassInside}/>
+              <Route exact  path="/grade/:grade" component={GradeBody}/>
+              <Route path="/grade/:grade/:class"  component={ClassInside}/>
             
             </Switch>
-            {/* <Home/>
-            <Test1/>
-            <Test2/> */}
             
           </div>
         </div>

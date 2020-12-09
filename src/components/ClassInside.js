@@ -1,9 +1,13 @@
 import React from 'react'
 
-function ClassInside() {
+function ClassInside({match}) {
     return (
         <div>
-            i am from class inside.
+            {console.log(match.params)}
+            Grade : {match.params.grade}
+            <br/>
+            <br/>
+            class : {match.params.class}
         </div>
     )
 }
