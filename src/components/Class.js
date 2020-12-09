@@ -25,6 +25,8 @@ function Class({cls}) {
         },
       });
 
+     
+
     const classes = useStyles();
     return (
         <div className="class__card">

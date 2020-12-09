@@ -4,6 +4,7 @@ import SidebarGrade from './components/SidebarGrade';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from './components/Home';
 import GradeBody from './components/GradeBody';
+import { useState } from 'react';
 
 
 
@@ -17,6 +18,16 @@ function App() {
     3:["A","B","C","D"],
     4:["A","B","C","D"],
   }
+
+  const [active, setActive] = useState({
+    active:""
+  });
+
+  console.log(active);
+
+
+
+
   return (
     <Router>
     <div className="App">
@@ -40,12 +51,16 @@ function App() {
               </div>
             
             
-            
-            {Object.keys(arr).map((key) => (
+            <div id="myDiv">
+              {Object.keys(arr).map((key) => (
               <Link style={{textDecoration:"none"}} to={`/grade/${[key, arr[key]]}`}>
-                <SidebarGrade year={key} />
+               <button onClick={(e)=>{
+                 setActive({active: e.target.value })
+               }} value={key} className={active.active === key ? 'active' : ''}>Grade {key}</button>
               </Link>
               ))}
+            </div>
+          
          
           </div>
 
@@ -68,6 +83,7 @@ function App() {
     </div>
     </Router>
   );
+
 }
 
 export default App;

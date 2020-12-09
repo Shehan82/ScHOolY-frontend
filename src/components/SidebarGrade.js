@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Button} from '@material-ui/core';
 import '../css/SidebarGrade.css';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,9 +15,11 @@ function Grade({year}) {
 
     return (
         <div className="Grade__container">
-            <Button   style={{color:"white", width:"100%", }}>Grade {year}</Button>
+            <Button  style={{color:"white", width:"100%"}}>Grade {year}</Button>
+            {/* <button className={active} onClick={blaa} style={{color:"black", width:"100%", border: "2px solid red"}}>Grade {year}</button> */}
         </div>
     )
+    
 }
 
 export default Grade
