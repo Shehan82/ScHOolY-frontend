@@ -17,6 +17,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
+      maxWidth: 600,
+      backgroundColor: "#053f5e",
+      color:"white"
     },
     bullet: {
       display: 'inline-block',
@@ -33,6 +36,7 @@ const useStyles = makeStyles({
 
 function ClassMainDetails() {
     const classes = useStyles();
+    const bull = <span className={classes.bullet}>•</span>;
 
     return (
 
