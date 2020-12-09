@@ -85,7 +85,7 @@ function App() {
                }} value={key} className={active.active === key ? console.log("meka") : 'notActive'}>GRADE {key}</button> */}
 
               {arr1.map((key) => (
-                <Link style={{textDecoration:"none"}} to={`/grade/${key}`}>
+                <Link style={{textDecoration:"none",  margin:"10px 0px 10px 0px"}} to={`/grade/${key}`}>
                <button onClick={(e)=>{
                  setActive({active: e.target.value })
                 //  console.log(e.target.value)
