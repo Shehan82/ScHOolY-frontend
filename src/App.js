@@ -1,10 +1,12 @@
 import './App.css';
-import {Button} from '@material-ui/core';
+import {Button, makeStyles, Breadcrumbs} from '@material-ui/core';
 import SidebarGrade from './components/SidebarGrade';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from './components/Home';
 import GradeBody from './components/GradeBody';
 import { useState } from 'react';
+import HomeIcon from '@material-ui/icons/Home';
+import ClassInside from './components/ClassInside';
 
 
 
@@ -19,13 +21,28 @@ function App() {
     4:["A","B","C","D"],
   }
 
+
   const [active, setActive] = useState({
-    active:""
+    active:"home"
   });
 
   console.log(active);
 
+  const useStyles = makeStyles({
+    active: {
+      backgroundColor:'red',
+    },
+    media: {
+      height: 140,
+    },
+  });
 
+  const classes = useStyles();
+
+  function handleClick(event) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+  }
 
 
   return (
@@ -46,20 +63,26 @@ function App() {
             
               <div className="App__sideBarHome">
               <Link style={{textDecoration:"none"}} to='/'>
-                <Button style={{color:"white", width:"100%"}}>Home</Button>
+                {/* <Button startIcon={<HomeIcon/>} style={{color:"white", width:"100%"}}>Home</Button> */}
+
+                <button  onClick={(e)=>{
+                 setActive({active: e.target.value })
+               }} value="home" className={active.active === "home" ? 'active' : 'notActive'}>HOME</button>
+
                 </Link>
               </div>
             
             
-            <div id="myDiv">
+          
               {Object.keys(arr).map((key) => (
               <Link style={{textDecoration:"none"}} to={`/grade/${[key, arr[key]]}`}>
                <button onClick={(e)=>{
                  setActive({active: e.target.value })
-               }} value={key} className={active.active === key ? 'active' : ''}>Grade {key}</button>
+               }} value={key} className={active.active === key ? 'active' : 'notActive'}>GRADE {key}</button>
+
               </Link>
               ))}
-            </div>
+          
           
          
           </div>
@@ -67,6 +90,23 @@ function App() {
 
 
           <div className="App__body">
+
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link color="inherit" href="/" onClick={handleClick}>
+                      Material-UI
+                    </Link>
+                    <Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
+                      Core
+                    </Link>
+                    <Link
+                      color="textPrimary"
+                      href="/components/breadcrumbs/"
+                      onClick={handleClick}
+                      aria-current="page"
+                    >
+                      Breadcrumb
+                    </Link>
+                </Breadcrumbs>
               
               <Switch>
               <Route path="/" exact component={Home}/>
