@@ -11,10 +11,10 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
+  
     
     
   },
- 
 });
 
 function createData(name, calories, fat, carbs, protein) {
@@ -35,13 +35,13 @@ function DetailsTable() {
     return (
         <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow style={{color:"white"}}>
-              <TableCell >Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+          <TableHead style={{backgroundColor:"black"}}>
+            <TableRow >
+              <TableCell style={{color:"white"}} >Dessert (100g serving)</TableCell>
+              <TableCell style={{color:"white"}} align="right">Calories</TableCell>
+              <TableCell style={{color:"white"}} align="right">Fat&nbsp;(g)</TableCell>
+              <TableCell style={{color:"white"}} align="right">Carbs&nbsp;(g)</TableCell>
+              <TableCell style={{color:"white"}} align="right">Protein&nbsp;(g)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody >

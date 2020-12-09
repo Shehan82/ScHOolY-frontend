@@ -51,7 +51,7 @@
 
 .App__body
 {
-  border: 2px solid white;
+  
   flex: 0.9;
   overflow-y: auto; 
   padding: 10px 40px 40px 40px;

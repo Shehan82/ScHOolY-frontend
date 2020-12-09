@@ -29,7 +29,7 @@ function ClassInside({match}) {
             <div className="ClassInside__bodyContainer">
 
             <div className="studentDetails">
-                    <DetailsTable/>
+                        <DetailsTable/>
                 </div>
                 <div className="mainDetails">
                     <ClassMainDetails/>

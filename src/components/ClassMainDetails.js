@@ -17,7 +17,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
-      maxWidth: 600,
+      maxWidth: 300,
       backgroundColor: "#053f5e",
       color:"white"
     },
@@ -27,7 +27,12 @@ const useStyles = makeStyles({
       transform: 'scale(0.8)',
     },
     title: {
-      fontSize: 14,
+      fontSize: 25,
+     
+    },
+    my:{
+      marginLeft:20,
+      fontSize: 15,
     },
     pos: {
       marginBottom: 12,
@@ -42,24 +47,29 @@ function ClassMainDetails() {
 
         <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
+        <Typography className={classes.title} gutterBottom>
+          Class Details
         </Typography>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
+        <Typography className={classes.my}  component="h2">
+          Class Teacher - Mrs. Shyamalee
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
+        <br/>
+        <Typography className={classes.my}  component="h2">
+          Boys Count - 28
         </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography className={classes.my}  component="h2">
+          Girls Count - 26
         </Typography>
+        <br/>
+        <Typography className={classes.my}  component="h2">
+          Monitor - Shehan
+        </Typography>
+        <Typography className={classes.my}  component="h2">
+          Monitress - Nisali
+        </Typography>
+        
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+     
     </Card>
 
     // <Card className={classes.root}>
