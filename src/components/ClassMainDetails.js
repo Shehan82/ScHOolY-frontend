@@ -18,8 +18,8 @@ const useStyles = makeStyles({
     root: {
       minWidth: 275,
       maxWidth: 300,
-      backgroundColor: "#053f5e",
-      color:"white"
+      backgroundColor: "",
+      color:"black"
     },
     bullet: {
       display: 'inline-block',
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
       transform: 'scale(0.8)',
     },
     title: {
-      fontSize: 25,
+      fontSize: 20,
      
     },
     my:{
@@ -39,36 +39,50 @@ const useStyles = makeStyles({
     },
   });
 
+  const border = {
+    
+    borderRight:"10px solid gray",
+    borderLeft:"10px solid gray",
+    borderTop:"1px solid gray",
+    minWidth:"100%"
+  }
+
 function ClassMainDetails() {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
 
-        <Card className={classes.root}>
-      <CardContent>
+      <Card style={border} className={classes.root}>
+         
+      
+      <CardActions style={{backgroundColor:" #282b34", color:"white"}}>
         <Typography className={classes.title} gutterBottom>
-          Class Details
+         Class Details
         </Typography>
+        </CardActions>
+        <br/>
+
+        
         <Typography className={classes.my}  component="h2">
-          Class Teacher - Mrs. Shyamalee
+        <b>Class Teacher - Mrs. Shyamalee</b> 
         </Typography>
         <br/>
         <Typography className={classes.my}  component="h2">
-          Boys Count - 28
+         <b>Boys Count - 28</b> 
         </Typography>
         <Typography className={classes.my}  component="h2">
-          Girls Count - 26
+         <b>Girls Count - 26</b> 
         </Typography>
         <br/>
         <Typography className={classes.my}  component="h2">
-          Monitor - Shehan
+         <b>Monitor - Shehan</b> 
         </Typography>
         <Typography className={classes.my}  component="h2">
-          Monitress - Nisali
+          <b>Monitress - Nisali</b>  
         </Typography>
         
-      </CardContent>
+     <br/>
      
     </Card>
 

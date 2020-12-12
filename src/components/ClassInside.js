@@ -27,13 +27,15 @@ function ClassInside({match}) {
             </div>
 
             <div className="ClassInside__bodyContainer">
-
-            <div className="studentDetails">
-                        <DetailsTable/>
-                </div>
-                <div className="mainDetails">
+            
+                 <div className="mainDetails">
                     <ClassMainDetails/>
                 </div>
+
+                <div className="studentDetails">
+                        <DetailsTable/>
+                </div>
+                
                
             </div>
            

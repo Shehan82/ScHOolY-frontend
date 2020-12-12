@@ -48,91 +48,55 @@ function App() {
   return (
     <Router>
     <div className="App">
-       <div className="App__header">
-              <h3>ScHOolY</h3>
-       </div>
 
 
-        <div className="App__bodyContainer">
-          <div className="App__sideBar">
+      {/* header */}
+      <div className="App__header">
+          <h3>ScHOolY</h3>
+      </div>
 
-            <div className="App__sideBarHeader">
+
+
+      {/* sidebar and app body */}
+      <div className="App__bodyContainer">
+
+        
+        {/* sidebar */}
+        <div className="App__sideBar">
+
+          <div className="App__sideBarHeader">
             <h3>Menu</h3>
-            </div>
+          </div>
 
-            
-              <div className="App__sideBarHome">
-              <Link style={{textDecoration:"none"}} to='/'>
-                {/* <Button startIcon={<HomeIcon/>} style={{color:"white", width:"100%"}}>Home</Button> */}
-
+          <div className="App__sideBarHome">
+            <Link style={{textDecoration:"none"}} to='/'>
                 <button  onClick={(e)=>{
                  setActive({active: e.target.value })
                }} value="home" className={active.active === "home" ? 'active' : 'notActive'}>HOME</button>
 
-                </Link>
-              </div>
-            
-            
-               
-              {/* {Object.keys(arr).map((key) => (
-              <Link style={{textDecoration:"none"}} to={`/grade/${[key, arr[key]]}`}>
-               <button onClick={(e)=>{
-                 setActive({active: e.target.value })
-                 console.log(e.target.value)
-                 console.log(active.active);
-                 console.log(key);
-                 console.log(active.active === key)
-               }} value={key} className={active.active === key ? console.log("meka") : 'notActive'}>GRADE {key}</button> */}
-
-              {arr1.map((key) => (
-                <Link style={{textDecoration:"none",  margin:"10px 0px 10px 0px"}} to={`/grade/${key}`}>
-               <button onClick={(e)=>{
-                 setActive({active: e.target.value })
-                //  console.log(e.target.value)
-                //  console.log(active.active);
-                //  console.log(key);
-                //  console.log(arr1.map(String))
-                //  console.log(Object.keys(arr))
-
-               }} value={key}  className={parseInt(active.active) === key ? 'active' : 'notActive'}>GRADE {key}</button>
-
-              </Link>
-              ))}
-          
-          
-         
+            </Link>
           </div>
 
+          {arr1.map((key) => (
+            <Link style={{textDecoration:"none",  margin:"10px 0px 10px 0px"}} to={`/grade/${key}`}>
+            <button onClick={(e)=>{
+              setActive({active: e.target.value })
+            }} value={key}  className={parseInt(active.active) === key ? 'active' : 'notActive'}>GRADE {key}</button>
 
-
-          <div className="App__body">
-
-                {/* <Breadcrumbs aria-label="breadcrumb">
-                    <Link to='/grade/year/class'>
-                      Material-UI
-                    </Link>
-                    <Link color="inherit" href="/getting-started/installation/" onClick={handleClick}>
-                      Core
-                    </Link>
-                    <Link
-                      color="textPrimary"
-                      href="/components/breadcrumbs/"
-                      onClick={handleClick}
-                      aria-current="page"
-                    >
-                      Breadcrumb
-                    </Link>
-                </Breadcrumbs> */}
-              
-              <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route exact  path="/grade/:grade" component={GradeBody}/>
-              <Route path="/grade/:grade/:class"  component={ClassInside}/>
-            
-            </Switch>
-            
-          </div>
+          </Link>
+          ))}
         </div>
+
+
+        {/* body */}
+        <div className="App__body">    
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route exact  path="/grade/:grade" component={GradeBody}/>
+            <Route path="/grade/:grade/:class"  component={ClassInside}/>
+          </Switch>  
+        </div>
+      </div>
       
     </div>
     </Router>

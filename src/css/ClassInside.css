@@ -31,22 +31,22 @@
 .ClassInside__bodyContainer
 {
     display: flex;
+    flex-direction: column;
 }
 
 .mainDetails
 {
     /* border: 2px solid red; */
-    margin-bottom: 20px;
-    width: 300px;
+   
+    width: 50%;
     padding: 30px;
-    background-color: #1c1f25;
+    
     /* box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .studentDetails
 {
-    /* border: 2px solid blue; */
-    width: 1000px;
-    padding: 30px;
+
+   padding: 30px;
     
 }

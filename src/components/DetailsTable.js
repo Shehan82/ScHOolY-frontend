@@ -7,13 +7,13 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
-  
-    
-    
+    minWidth: 800,
   },
 });
 
@@ -27,19 +27,35 @@ const rows = [
   createData('Eclair', 262, 16.0),
   createData('Cupcake', 305, 3.7),
   createData('Gingerbread', 356, 16.0),
+  createData('Gingerbread', 356, 16.0),
+  createData('Gingerbread', 356, 16.0),
+  createData('Gingerbread', 356, 16.0),
+  createData('Gingerbread', 356, 16.0),
 ];
 
+const border = {
+  
+  borderRight:"10px solid  gray",
+  borderLeft:"10px solid  gray",
+  borderTop:"1px solid gray"
+  
+
+}
+
+const getIndex = (e)=>{
+    console.log(e.target);
+}
 
 function DetailsTable() {
     const classes = useStyles();
     return (
         <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead style={{backgroundColor:"black"}}>
+        <Table style={border} className={classes.table} aria-label="simple table">
+          <TableHead style={{backgroundColor:" #282b34"}}>
             <TableRow >
               <TableCell style={{color:"white"}} >Index Number</TableCell>
-              <TableCell style={{color:"white"}} align="right">Full Name</TableCell>
-              <TableCell style={{color:"white"}} align="right">View Details</TableCell>
+              <TableCell style={{color:"white"}} align="left">Full Name</TableCell>
+              <TableCell style={{color:"white"}} align="center">View Details</TableCell>
             </TableRow>
           </TableHead>
           <TableBody >
@@ -48,8 +64,8 @@ function DetailsTable() {
                 <TableCell component="th" scope="row">
                   {row.index}
                 </TableCell>
-                <TableCell  align="right">{row.fullName}</TableCell>
-                <TableCell align="right">{row.view}</TableCell>
+                <TableCell  align="left">{row.fullName}</TableCell>
+                <TableCell align="center"> <IconButton onClick={()=>{console.log("helloo")}} style={{color:"black"}} > <VisibilityIcon/></IconButton></TableCell>
               </TableRow>
             ))}
           </TableBody>
