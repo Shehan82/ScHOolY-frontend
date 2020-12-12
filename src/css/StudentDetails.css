@@ -1,0 +1,37 @@
+.StudentDetails__headerContainer
+{
+    display: flex;
+}
+.StudentDetails__headerGrade
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
+
+.StudentDetails__headerSlash
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px; 
+    margin-bottom: 20px;
+}
+
+.StudentDetails__headerClass
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
+.StudentDetails__headerStudent
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
