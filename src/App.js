@@ -7,7 +7,7 @@ import GradeBody from './components/GradeBody';
 import { useState } from 'react';
 import HomeIcon from '@material-ui/icons/Home';
 import ClassInside from './components/ClassInside'
-
+import StudentDetails from './components/StudentDetails';
 
 
 
@@ -93,7 +93,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route exact  path="/grade/:grade" component={GradeBody}/>
-            <Route path="/grade/:grade/:class"  component={ClassInside}/>
+            <Route exact path="/grade/:grade/:class"  component={ClassInside}/>
+            <Route path="/grade/:grade/:class/:student" component={StudentDetails}/>
           </Switch>  
         </div>
       </div>

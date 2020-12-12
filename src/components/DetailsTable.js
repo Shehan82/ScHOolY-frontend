@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import IconButton from '@material-ui/core/IconButton';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -42,11 +43,9 @@ const border = {
 
 }
 
-const getIndex = (e)=>{
-    console.log(e.target);
-}
 
-function DetailsTable() {
+
+function DetailsTable(props) {
     const classes = useStyles();
     return (
         <TableContainer component={Paper}>
@@ -65,7 +64,11 @@ function DetailsTable() {
                   {row.index}
                 </TableCell>
                 <TableCell  align="left">{row.fullName}</TableCell>
-                <TableCell align="center"> <IconButton onClick={()=>{console.log("helloo")}} style={{color:"black"}} > <VisibilityIcon/></IconButton></TableCell>
+                <TableCell align="center">
+                  <Link to={`/grade/${props.grade}/${props.class}/${row.index}`}>
+                   <IconButton onClick={()=>{console.log(props)}} style={{color:"black"}} > <VisibilityIcon/></IconButton>
+                  </Link>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

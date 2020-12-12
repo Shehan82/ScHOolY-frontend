@@ -33,7 +33,7 @@ function ClassInside({match}) {
                 </div>
 
                 <div className="studentDetails">
-                        <DetailsTable/>
+                        <DetailsTable grade={match.params.grade} class={match.params.class}/>
                 </div>
                 
                
