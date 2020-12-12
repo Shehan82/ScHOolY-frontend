@@ -1,0 +1,7 @@
+.SemResult__container
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    border: 2px solid blue;
+}

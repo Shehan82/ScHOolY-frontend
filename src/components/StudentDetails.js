@@ -1,6 +1,13 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import '../css/StudentDetails.css'
+import '../css/StudentDetails.css';
+import SemResult from './SemResult';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import { Typography } from '@material-ui/core';
 
 function StudentDetails({match}) {
     return (
@@ -33,6 +40,40 @@ function StudentDetails({match}) {
                 </div>
 
             </div>
+
+            <div>
+                <div className="studentAllDetails">
+                    <Card style={{width:"100%"}}>
+                    <CardHeader style={{backgroundColor:"#282b34", color:"white", border:"1px solid gray"}} title="18000282 Details"/>
+
+                    <CardContent>
+                        <Typography>
+                            askjfhaskjasfh
+                        </Typography>
+                        <Typography>
+                            askjfhaskjasfh
+                        </Typography>
+                        <Typography>
+                            askjfhaskjasfh
+                        </Typography>
+                        <Typography>
+                            askjfhaskjasfh
+                        </Typography>
+                        <Typography>
+                            askjfhaskjasfh
+                        </Typography>
+                    </CardContent>
+                    </Card>
+                </div>
+
+                <div className="SemResult__container">
+                <SemResult/>
+                <SemResult/>
+                <SemResult/>
+                </div>
+            </div>
+
+            
         </div>
     )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -8,46 +7,76 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardHeader from '@material-ui/core/CardHeader';
+
+
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      minWidth: 400,
+      maxWidth: 450,
+      margin:10,
     },
     media: {
       height: 140,
     },
   });
 
+
+
 function SemResult() {
     const classes = useStyles();
     return (
-        <div>
+        <div >
             <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
+
+               
+                    
+                <CardContent>
+                    
+                    <Typography>
+                    buddhisam : 90
+                    maths : 100
+                    </Typography>
+                    <Typography>
+                    kajsfajhfasjflkajf
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+
+                    <Typography>
+                    afkjasflkas
+                    </Typography>
+                   
+                   
+                    
+                    alfkajsdfkaj
+                    afklajslfkajfas
+                    afkjalkfj
+                </CardContent>
+            </Card>
         </div>
     )
 }

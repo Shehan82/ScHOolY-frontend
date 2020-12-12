@@ -35,3 +35,20 @@
     border-bottom: 1px solid white;
     margin-bottom: 20px;
 }
+
+.SemResult__container
+{
+    display: flex;
+    justify-content: space-between;
+    /* display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    grid-row-gap: 30px; */
+    padding: 30px;
+    /* border: 2px solid blue; */
+}
+
+.studentAllDetails
+{
+    padding: 30px;
+}
