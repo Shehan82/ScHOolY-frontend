@@ -9,6 +9,32 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import { Typography } from '@material-ui/core';
 
+const data = {
+    1:{
+        buddhisam:60,
+        maths:90,
+        sinhala:34,
+        science:67,
+        history:69,
+    },
+
+    2:{
+        buddhisam:45,
+        maths:94,
+        sinhala:34,
+        science:67,
+        history:85,
+    },
+
+    3:{
+        buddhisam:34,
+        maths:90,
+        sinhala:34,
+        science:47,
+        history:70,
+    }
+}
+
 function StudentDetails({match}) {
     return (
         <div>
@@ -67,9 +93,9 @@ function StudentDetails({match}) {
                 </div>
 
                 <div className="SemResult__container">
-                <SemResult/>
-                <SemResult/>
-                <SemResult/>
+                    {Object.keys(data).map(key=>(
+                        <SemResult semData={data[key]} sem={key} />
+                    ))}
                 </div>
             </div>
 

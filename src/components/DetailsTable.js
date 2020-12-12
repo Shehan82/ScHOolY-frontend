@@ -34,14 +34,6 @@ const rows = [
   createData('Gingerbread', 356, 16.0),
 ];
 
-const border = {
-  
-  borderRight:"10px solid  gray",
-  borderLeft:"10px solid  gray",
-  borderTop:"1px solid gray"
-  
-
-}
 
 
 
@@ -49,8 +41,8 @@ function DetailsTable(props) {
     const classes = useStyles();
     return (
         <TableContainer component={Paper}>
-        <Table style={border} className={classes.table} aria-label="simple table">
-          <TableHead style={{backgroundColor:" #282b34"}}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead style={{backgroundColor:" #282b34", border:"1px solid gray"}}>
             <TableRow >
               <TableCell style={{color:"white"}} >Index Number</TableCell>
               <TableCell style={{color:"white"}} align="left">Full Name</TableCell>
@@ -59,7 +51,7 @@ function DetailsTable(props) {
           </TableHead>
           <TableBody >
             {rows.map((row) => (
-              <TableRow key={row.index}>
+              <TableRow  key={row.index}>
                 <TableCell component="th" scope="row">
                   {row.index}
                 </TableCell>

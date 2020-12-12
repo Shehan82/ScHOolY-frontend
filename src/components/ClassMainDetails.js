@@ -41,9 +41,7 @@ const useStyles = makeStyles({
 
   const border = {
     
-    borderRight:"10px solid gray",
-    borderLeft:"10px solid gray",
-    borderTop:"1px solid gray",
+   
     minWidth:"100%"
   }
 
@@ -54,9 +52,9 @@ function ClassMainDetails() {
     return (
 
       <Card style={border} className={classes.root}>
-         
+       
       
-      <CardActions style={{backgroundColor:" #282b34", color:"white"}}>
+      <CardActions style={{backgroundColor:" #282b34", color:"white",border:"1px solid gray"}}>
         <Typography className={classes.title} gutterBottom>
          Class Details
         </Typography>

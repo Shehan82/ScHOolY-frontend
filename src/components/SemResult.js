@@ -24,57 +24,25 @@ const useStyles = makeStyles({
 
 
 
-function SemResult() {
+function SemResult({semData, sem}) {
+    
     const classes = useStyles();
     return (
         <div >
             <Card className={classes.root}>
 
-               
+                <CardHeader style={{backgroundColor:"#282b34", color:"white", border:"1px solid gray"}} title={`semester ${sem}`}/>
                     
                 <CardContent>
-                    
-                    <Typography>
-                    buddhisam : 90
-                    maths : 100
-                    </Typography>
-                    <Typography>
-                    kajsfajhfasjflkajf
-                    </Typography>
 
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
+                    {Object.keys(semData).map(subject=>(
+                         <Typography>
+                            <h4>{subject} : {semData[subject]}</h4> 
+                         </Typography>
+                    ))}
 
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
-
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
-
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
-
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
-
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
-
-                    <Typography>
-                    afkjasflkas
-                    </Typography>
+                    {console.log(semData)}
                    
-                   
-                    
-                    alfkajsdfkaj
-                    afklajslfkajfas
-                    afkjalkfj
                 </CardContent>
             </Card>
         </div>
