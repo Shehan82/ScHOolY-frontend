@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/ClassInside.css';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import DetailsTable from './DetailsTable';
@@ -6,9 +6,12 @@ import ClassMainDetails from './ClassMainDetails';
 import axios from '../axios';
 
 function ClassInside({match}) {
-
+    const [students, setStudents] = useState([]);
     useEffect(() => {
        axios.get(`/grade/${match.params.grade}/${match.params.class}`)
+       .then(res=>{
+            setStudents(res.data);
+       })
     }, [])
     return (
         <div>
@@ -38,10 +41,8 @@ function ClassInside({match}) {
                 </div>
 
                 <div className="studentDetails">
-                        <DetailsTable grade={match.params.grade} class={match.params.class}/>
+                        <DetailsTable grade={match.params.grade} class={match.params.class} students={students}/>
                 </div>
-                
-               
             </div>
            
             

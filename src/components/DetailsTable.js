@@ -22,22 +22,13 @@ function createData(index, fullName, view) {
   return { index, fullName, view };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-  createData('Gingerbread', 356, 16.0),
-  createData('Gingerbread', 356, 16.0),
-  createData('Gingerbread', 356, 16.0),
-  createData('Gingerbread', 356, 16.0),
-];
+
 
 
 
 
 function DetailsTable(props) {
+  console.log(props.students)
     const classes = useStyles();
     return (
         <TableContainer component={Paper}>
@@ -50,14 +41,14 @@ function DetailsTable(props) {
             </TableRow>
           </TableHead>
           <TableBody >
-            {rows.map((row) => (
-              <TableRow  key={row.index}>
+            {props.students.map((student) => (
+              <TableRow  key={student.index}>
                 <TableCell component="th" scope="row">
-                  {row.index}
+                  {student.index}
                 </TableCell>
-                <TableCell  align="left">{row.fullName}</TableCell>
+                <TableCell  align="left">{student.fullName}</TableCell>
                 <TableCell align="center">
-                  <Link to={`/grade/${props.grade}/${props.class}/${row.index}`}>
+                  <Link to={`/grade/${props.grade}/${props.class}/${student.index}`}>
                    <IconButton onClick={()=>{console.log(props)}} style={{color:"black"}} > <VisibilityIcon/></IconButton>
                   </Link>
                 </TableCell>

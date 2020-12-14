@@ -7,35 +7,21 @@ import axios from '../axios';
 function GradeBody({match}) {
   
 
-    const [school, setSchool] = useState([]);
-    const [classes, setclasses] = useState([]);
-    const cls = ()=>{
-        for(var i=0; i< school.length;i++)
-        {
-            if(school[i].grade == match.params.grade)
-            {
-                return school[i].class;
-            }
-        }
-    }
-
-    
-  const allCls = cls();
-  console.log(allCls)
-    
-
+    const [classes, setClasses] = useState([]);
 
 
   console.log(classes);
 
     useEffect(() => {
-      axios.get('/grade')
+      axios.get(`/classes/${match.params.grade}`)
       .then(res => {
-        setSchool(res.data);
+        setClasses(res.data[0].class);
       });
-      
-    }, [])
+ 
+    }, [match.params.grade])
 
+    console.log(classes +""+ match.params.grade);
+    
    
     return (
       
@@ -45,7 +31,7 @@ function GradeBody({match}) {
             </div>
            
             <div className="GradeBody">
-                {allCls.map(cls => (
+                {classes.map(cls => (
                     <Link style={{textDecoration:"none"}} to={`/grade/${match.params.grade}/${cls}`}>
                       <Class classRoom={cls}/>
                    </Link>
