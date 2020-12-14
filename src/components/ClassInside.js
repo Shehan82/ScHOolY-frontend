@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../css/ClassInside.css';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import DetailsTable from './DetailsTable';
-import ClassMainDetails from './ClassMainDetails'
+import ClassMainDetails from './ClassMainDetails';
+import axios from '../axios';
 
 function ClassInside({match}) {
+
+    useEffect(() => {
+       axios.get(`/grade/${match.params.grade}/${match.params.class}`)
+    }, [])
     return (
         <div>
             <div className="ClassInside__headerContainer">

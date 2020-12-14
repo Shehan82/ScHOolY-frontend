@@ -4,10 +4,11 @@ import SidebarGrade from './components/SidebarGrade';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from './components/Home';
 import GradeBody from './components/GradeBody';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HomeIcon from '@material-ui/icons/Home';
 import ClassInside from './components/ClassInside'
 import StudentDetails from './components/StudentDetails';
+import axios from './axios';
 
 
 
@@ -21,12 +22,21 @@ function App() {
     4:["A","B","C","D"],
   }
 
+  const [school, setSchool] = useState([])
 
+  useEffect(() => {
+    axios.get('/grade')
+    .then(res => {
+      setSchool(res.data);
+    })
+  }, [])
+
+  console.log(school);
   const [active, setActive] = useState({
     active:"home"
   });
 
-  console.log(active);
+
 
   const useStyles = makeStyles({
     active: {
@@ -39,10 +49,7 @@ function App() {
 
   const classes = useStyles();
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-  }
+  
 
 
   return (
@@ -77,11 +84,11 @@ function App() {
             </Link>
           </div>
 
-          {arr1.map((key) => (
-            <Link style={{textDecoration:"none",  margin:"10px 0px 10px 0px"}} to={`/grade/${key}`}>
+          {school.map((grade) => (
+            <Link style={{textDecoration:"none",  margin:"10px 0px 10px 0px"}} to={`/grade/${grade.grade}`}>
             <button onClick={(e)=>{
               setActive({active: e.target.value })
-            }} value={key}  className={parseInt(active.active) === key ? 'active' : 'notActive'}>GRADE {key}</button>
+            }} value={grade.grade}  className={parseInt(active.active) === grade.grade ? 'active' : 'notActive'}>GRADE {grade.grade}</button>
 
           </Link>
           ))}
