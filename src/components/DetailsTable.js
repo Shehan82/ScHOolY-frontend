@@ -29,7 +29,7 @@ function createData(index, fullName, view) {
 
 function DetailsTable(props) {
   console.log(props)
-    const classes = useStyles();
+    const classes = useStyles(); 
     return (
         <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
