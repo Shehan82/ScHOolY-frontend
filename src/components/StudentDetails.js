@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import '../css/StudentDetails.css';
 import SemResult from './SemResult';
@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import { Typography } from '@material-ui/core';
+import axios from '../axios';
 
 const data = {
     1:{
@@ -36,6 +37,18 @@ const data = {
 }
 
 function StudentDetails({match}) {
+
+    const [studentDetails, setStudentDetails] = useState({});
+
+    useEffect(() => {
+        axios.get(`/index/${match.params.student}`)
+        .then(res =>{
+            setStudentDetails(res.data[0]);
+        })
+    }, [])
+
+    console.log(studentDetails);
+
     return (
         <div>
             <div className="StudentDetails__headerContainer">
@@ -74,19 +87,22 @@ function StudentDetails({match}) {
 
                     <CardContent>
                         <Typography>
-                            askjfhaskjasfh
+                           Name : {studentDetails.fullName}
                         </Typography>
                         <Typography>
-                            askjfhaskjasfh
+                            Mother's Name : {studentDetails.mothersName}
                         </Typography>
                         <Typography>
-                            askjfhaskjasfh
+                            Father's Name : {studentDetails.fathersName}
                         </Typography>
                         <Typography>
-                            askjfhaskjasfh
+                            Home number : {studentDetails.landNum}
                         </Typography>
                         <Typography>
-                            askjfhaskjasfh
+                            Mobile number : {studentDetails.mobileNum}
+                        </Typography>
+                        <Typography>
+                            Mobile number : {studentDetails.mobileNUm}
                         </Typography>
                     </CardContent>
                     </Card>
