@@ -38,16 +38,25 @@ const data = {
 
 function StudentDetails({match}) {
 
-    const [studentDetails, setStudentDetails] = useState({});
+    const [studentDetails, setStudentDetails] = useState([]);
 
     useEffect(() => {
         axios.get(`/index/${match.params.student}`)
         .then(res =>{
-            setStudentDetails(res.data[0]);
+            setStudentDetails(res.data);
         })
-    }, [])
+    }, [match.params.student])
 
-    console.log(studentDetails);
+    // studentDetails.sem.map(sem=>(
+    //     console.log(sem.marks)
+    // ))
+     
+
+     studentDetails.map(student => (
+         console.log(student.sem)
+     ))
+
+    
 
     return (
         <div>
@@ -87,30 +96,48 @@ function StudentDetails({match}) {
 
                     <CardContent>
                         <Typography>
-                           Name : {studentDetails.fullName}
+                           Name : {studentDetails.map(student => (
+                                                student.fullName
+                                            ))}
                         </Typography>
                         <Typography>
-                            Mother's Name : {studentDetails.mothersName}
+                            Mother's Name : {studentDetails.map(student => (
+                                                student.mothersName
+                                            ))}
                         </Typography>
                         <Typography>
-                            Father's Name : {studentDetails.fathersName}
+                            Father's Name : {studentDetails.map(student => (
+                                                student.fathersName
+                                            ))}
                         </Typography>
                         <Typography>
-                            Home number : {studentDetails.landNum}
+                            Home number : {studentDetails.map(student => (
+                                                student.landNum
+                                            ))}
                         </Typography>
                         <Typography>
-                            Mobile number : {studentDetails.mobileNum}
+                            Mobile number : {studentDetails.map(student => (
+                                                student.mobileNum
+                                            ))}
                         </Typography>
                         <Typography>
-                            Mobile number : {studentDetails.mobileNUm}
+                            Mobile number : {studentDetails.map(student => (
+                                                student.mobileNum
+                                            ))}
                         </Typography>
                     </CardContent>
                     </Card>
                 </div>
 
                 <div className="SemResult__container">
-                    {Object.keys(data).map(key=>(
-                        <SemResult semData={data[key]} sem={key} />
+                    {/* {studentDetails.sem.map(key=>(
+                        <SemResult semData={key.marks} sem={key.name} />
+                    ))} */}
+
+                    {studentDetails.map(student=> (
+                        student.sem.map(key=>(
+                            <SemResult semData={key.marks} sem={key.name} />
+                        ))
                     ))}
                 </div>
             </div>
