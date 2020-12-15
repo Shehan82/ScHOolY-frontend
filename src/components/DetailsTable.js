@@ -28,7 +28,7 @@ function createData(index, fullName, view) {
 
 
 function DetailsTable(props) {
-  console.log(props.students)
+  console.log(props)
     const classes = useStyles();
     return (
         <TableContainer component={Paper}>
@@ -41,7 +41,7 @@ function DetailsTable(props) {
             </TableRow>
           </TableHead>
           <TableBody >
-            {props.students.map((student) => (
+            {props.students.map((student) => ( 
               <TableRow  key={student.index}>
                 <TableCell component="th" scope="row">
                   {student.index}
@@ -49,6 +49,7 @@ function DetailsTable(props) {
                 <TableCell  align="left">{student.fullName}</TableCell>
                 <TableCell align="center">
                   <Link to={`/grade/${props.grade}/${props.class}/${student.index}`}>
+                    {console.log(student.index)}
                    <IconButton onClick={()=>{console.log(props)}} style={{color:"black"}} > <VisibilityIcon/></IconButton>
                   </Link>
                 </TableCell>
