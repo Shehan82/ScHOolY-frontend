@@ -1,4 +1,4 @@
-**ScHOolY**
+#  **ScHOolY**
 
 Schooly is a single page web application. it is mainly focus on student management for schools. 
 
