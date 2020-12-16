@@ -7,12 +7,25 @@ import axios from '../axios';
 
 function ClassInside({match}) {
     const [students, setStudents] = useState([]);
+    const [classDetails, setClassDetails] = useState({})
     useEffect(() => {
        axios.get(`/grade/${match.params.grade}/${match.params.class}`)
        .then(res=>{
             setStudents(res.data);
+       });
+
+       axios.get(`/classDetails/${match.params.grade}`)
+       .then(res=>{
+           res.data.map(grade=>(
+               grade.class.filter(cls=>(cls.name==`${match.params.class}`)).map(clsObj=>(
+                   setClassDetails(clsObj)
+               ))
+           
+           ))
+            
        })
     }, [])
+    console.log(classDetails);
     return (
         <div>
             <div className="ClassInside__headerContainer">
@@ -37,7 +50,7 @@ function ClassInside({match}) {
             <div className="ClassInside__bodyContainer">
             
                  <div className="mainDetails">
-                    <ClassMainDetails/>
+                    <ClassMainDetails teacher={classDetails.classTeacher} monitor={classDetails.monitor} monitress={classDetails.monitress} />
                 </div>
 
                 <div className="studentDetails">
