@@ -45,7 +45,7 @@ const useStyles = makeStyles({
     minWidth:"100%"
   }
 
-function ClassMainDetails() {
+function ClassMainDetails(props) {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
@@ -63,7 +63,7 @@ function ClassMainDetails() {
 
         
         <Typography className={classes.my}  component="h2">
-        <b>Class Teacher - Mrs. Shyamalee</b> 
+        <b>Class Teacher : {props.teacher}</b> 
         </Typography>
         <br/>
         <Typography className={classes.my}  component="h2">
@@ -74,10 +74,10 @@ function ClassMainDetails() {
         </Typography>
         <br/>
         <Typography className={classes.my}  component="h2">
-         <b>Monitor - Shehan</b> 
+         <b>Monitor : {props.monitor}</b> 
         </Typography>
         <Typography className={classes.my}  component="h2">
-          <b>Monitress - Nisali</b>  
+          <b>Monitress : {props.monitress}</b>  
         </Typography>
         
      <br/>
