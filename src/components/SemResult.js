@@ -31,7 +31,7 @@ function SemResult({semData, sem}) {
         <div >
             <Card className={classes.root}>
 
-                <CardHeader style={{backgroundColor:"#282b34", color:"white", border:"1px solid gray"}} title={`semester ${sem}`}/>
+                <CardHeader style={{backgroundColor:"#282b34", color:"white", border:"1px solid gray"}} title={`${sem}`}/>
                     
                 <CardContent>
 
