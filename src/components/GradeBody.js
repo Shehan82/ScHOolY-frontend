@@ -10,17 +10,23 @@ function GradeBody({match}) {
     const [classes, setClasses] = useState([]);
 
 
-  console.log(classes);
+
 
     useEffect(() => {
       axios.get(`/classes/${match.params.grade}`)
       .then(res => {
-        setClasses(res.data[0].class);
+        res.data.map(classes=>(
+          setClasses(classes.class)
+        ))
+        
       });
  
     }, [match.params.grade])
 
-    console.log(classes +""+ match.params.grade);
+    // console.log(classes);
+    classes.map(cls=>(
+      console.log(cls)
+    ))
     
    
     return (
@@ -32,9 +38,10 @@ function GradeBody({match}) {
            
             <div className="GradeBody">
                 {classes.map(cls => (
-                    <Link style={{textDecoration:"none"}} to={`/grade/${match.params.grade}/${cls}`}>
-                      <Class classRoom={cls}/>
+                    <Link style={{textDecoration:"none"}} to={`/grade/${match.params.grade}/${cls.name}`}>
+                      <Class className={cls.name} teacher={cls.classTeacher} monitor={cls.monitor} monitress={cls.monitress}/>
                    </Link>
+                 
                 ))}
             </div>
         </div>
