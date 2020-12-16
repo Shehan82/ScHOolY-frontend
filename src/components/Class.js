@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { SignalWifi1BarLockSharp } from '@material-ui/icons';
 import '../css/Class.css'
 
-function Class({classRoom}) {
+function Class(props) {
 
     const useStyles = makeStyles({
         root: {
@@ -38,15 +38,15 @@ function Class({classRoom}) {
                 <CardMedia
                 className={classes.media}
                 image="https://images.all-free-download.com/images/graphiclarge/canoe_water_nature_221611.jpg"
-                title="Class Card"
+                title={`Class ${props.className}`}
                 />
 
                 <CardContent >
                     <Typography  gutterBottom variant="h5" component="h2">
-                        Class {classRoom}
+                        Class {props.className}
                     </Typography>
                     <Typography  variant="body2"  component="p">
-                       class teacher : Mrs. Shyamalee
+                       class teacher :{props.teacher}
                     </Typography>
                     <Typography variant="body2" color="" component="p">
                        Boys count : 28
