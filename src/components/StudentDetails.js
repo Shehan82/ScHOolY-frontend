@@ -120,11 +120,6 @@ function StudentDetails({match}) {
                                                 student.mobileNum
                                             ))}
                         </Typography>
-                        <Typography>
-                            Mobile number : {studentDetails.map(student => (
-                                                student.mobileNum
-                                            ))}
-                        </Typography>
                     </CardContent>
                     </Card>
                 </div>
