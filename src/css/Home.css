@@ -7,13 +7,13 @@
     margin-bottom: 20px;
 }
 
-.Home__searchBar
-{
-    padding: 30px;
-    /* background-color: white; */
-}
-.text
-{
-    color: tomato;
+.HomeBody
+{   
+display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row-gap: 30px;
+  /* border: 2px solid white; */
+  justify-items: center;
+  
 }
 
