@@ -65,7 +65,7 @@ const CssTextField = withStyles({
 
 const filter = createFilterOptions();
 
-function Home() {
+function SearchBar() {
     const [value, setValue] = React.useState(null);
     const classes = useStyles();
     
@@ -250,4 +250,4 @@ const top100Films = [
     { title: 'Monty Python and the Holy Grail', year: 1975 },
   ];
 
-export default Home
+export default SearchBar
