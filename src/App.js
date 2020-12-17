@@ -103,6 +103,7 @@ function App() {
             <Route exact path="/grade/:grade/:class"  component={ClassInside}/>
             <Route path="/grade/:grade/:class/:student" component={StudentDetails}/>
           </Switch>  
+          
         </div>
       </div>
       
