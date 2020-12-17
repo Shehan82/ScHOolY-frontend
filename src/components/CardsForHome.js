@@ -36,7 +36,7 @@ function CardsForHome() {
                     <CardMedia
                     className={classes.media}
                     image="https://images.all-free-download.com/images/graphiclarge/canoe_water_nature_221611.jpg"
-                    title={`Class ${props.className}`}
+                    title={`Class`}
                     />
     
                     <CardContent >
