@@ -9,11 +9,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { SignalWifi1BarLockSharp } from '@material-ui/icons';
 
-function CardsForHome() {
+function CardsForHome(props) {
     const useStyles = makeStyles({
         root: {
-          maxWidth: 250,
-          minWidth: 200,
+          width:200,
+          height:230,
           
           backgroundColor: "rgb(66, 66, 66)",
           color:"white",
@@ -35,13 +35,13 @@ function CardsForHome() {
     
                     <CardMedia
                     className={classes.media}
-                    image="https://images.all-free-download.com/images/graphiclarge/canoe_water_nature_221611.jpg"
+                    image={props.image}
                     title={`Class`}
                     />
     
                     <CardContent >
-                        <Typography  gutterBottom variant="h5" component="h2">
-                          blaa blaa  blaaa
+                        <Typography  gutterBottom variant="h6" component="h2">
+                          {props.title}
                         </Typography>
                         
                     </CardContent>
