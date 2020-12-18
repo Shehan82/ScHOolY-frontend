@@ -11,9 +11,88 @@ function AddNewStudent() {
     const sendDetails = (e)=>{
         e.preventDefault();
         console.log(e.target.elements.index.value)
-        console.log(e.target.elements.sem1_sub1.value)
-
         
+
+        var sem1_sub1 = `${e.target.elements.sem1_sub1.value}`;
+        var sem1_sub2 = `${e.target.elements.sem1_sub2.value}`;
+        var sem1_sub3 = `${e.target.elements.sem1_sub3.value}`;
+        var sem1_sub4 = `${e.target.elements.sem1_sub4.value}`;
+        var sem1_sub5 = `${e.target.elements.sem1_sub5.value}`;
+
+        var sem1_sub1_marks = `${e.target.elements.sem1_sub1_marks.value}`;
+        var sem1_sub2_marks = `${e.target.elements.sem1_sub2_marks.value}`;
+        var sem1_sub3_marks = `${e.target.elements.sem1_sub3_marks.value}`;
+        var sem1_sub4_marks = `${e.target.elements.sem1_sub4_marks.value}`;
+        var sem1_sub5_marks = `${e.target.elements.sem1_sub5_marks.value}`;
+
+
+
+        var sem2_sub1 = `${e.target.elements.sem2_sub1.value}`;
+        var sem2_sub2 = `${e.target.elements.sem2_sub2.value}`;
+        var sem2_sub3 = `${e.target.elements.sem2_sub3.value}`;
+        var sem2_sub4 = `${e.target.elements.sem2_sub4.value}`;
+        var sem2_sub5 = `${e.target.elements.sem2_sub5.value}`;
+
+        var sem2_sub1_marks = `${e.target.elements.sem2_sub1_marks.value}`;
+        var sem2_sub2_marks = `${e.target.elements.sem2_sub2_marks.value}`;
+        var sem2_sub3_marks = `${e.target.elements.sem2_sub3_marks.value}`;
+        var sem2_sub4_marks = `${e.target.elements.sem2_sub4_marks.value}`;
+        var sem2_sub5_marks = `${e.target.elements.sem2_sub5_marks.value}`;
+
+
+
+        var sem3_sub1 = `${e.target.elements.sem3_sub1.value}`;
+        var sem3_sub2 = `${e.target.elements.sem3_sub2.value}`;
+        var sem3_sub3 = `${e.target.elements.sem3_sub3.value}`;
+        var sem3_sub4 = `${e.target.elements.sem3_sub4.value}`;
+        var sem3_sub5 = `${e.target.elements.sem3_sub5.value}`;
+
+        var sem3_sub1_marks = `${e.target.elements.sem3_sub1_marks.value}`;
+        var sem3_sub2_marks = `${e.target.elements.sem3_sub2_marks.value}`;
+        var sem3_sub3_marks = `${e.target.elements.sem3_sub3_marks.value}`;
+        var sem3_sub4_marks = `${e.target.elements.sem3_sub4_marks.value}`;
+        var sem3_sub5_marks = `${e.target.elements.sem3_sub5_marks.value}`;
+
+        axios.post('/create',{
+            index : `${e.target.elements.index.value}` ,
+            fullName : `${e.target.elements.fullName.value}` ,
+            address : `${e.target.elements.address.value}` ,
+            landNum : `${e.target.elements.landNum.value}` ,
+            mobileNum : `${e.target.elements.mobileNum.value}` ,
+            mothersName : `${e.target.elements.motherName.value}` ,
+            fathersName : `${e.target.elements.fatherName.value}` ,
+            grade : `${e.target.elements.grade.value}` ,
+            class : `${e.target.elements.class.value}` ,
+        sem : [
+            {
+                marks : {
+                  sem1_sub1 : sem1_sub1_marks,
+                  sem1_sub2 : sem1_sub2_marks,
+                  sem1_sub3 : sem1_sub3_marks,
+                  sem1_sub4 : sem1_sub4_marks,
+                  sem1_sub5 : sem1_sub5_marks,
+                }
+            },
+            {
+                marks : {
+                    sem2_sub1 : sem2_sub1_marks,
+                    sem2_sub2 : sem2_sub2_marks,
+                    sem2_sub3 : sem2_sub3_marks,
+                    sem2_sub4 : sem2_sub4_marks,
+                    sem2_sub5 : sem2_sub5_marks,
+                }
+            },
+            {
+                marks : {
+                    sem3_sub1 : sem3_sub1_marks,
+                    sem3_sub2 : sem3_sub2_marks,
+                    sem3_sub3 : sem3_sub3_marks,
+                    sem3_sub4 : sem3_sub4_marks,
+                    sem3_sub5 : sem3_sub5_marks,
+                }
+            }
+        ]
+        })
 
     }
 
