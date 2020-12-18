@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/AddNewStudent.css';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import axios from '../../axios';
 
 
 
@@ -9,7 +10,8 @@ function AddNewStudent() {
 
     const sendDetails = (e)=>{
         e.preventDefault();
-        console.log(e)
+        console.log(e.target.elements.index.value)
+        console.log(e.target.elements.fullName.value)
 
     }
 
@@ -21,7 +23,7 @@ function AddNewStudent() {
                 <h3>Add New Student</h3>
             </div>
             <div className="AddNewStudent__formContainer">
-                <form >
+                <form onSubmit={sendDetails} >
                 <h2>Main details</h2> 
                     <div className="mainDetails">
                        
@@ -35,7 +37,7 @@ function AddNewStudent() {
                             <label htmlFor="fullName">fullName</label>
                             <input id="fullName" name="fullName" type="text"/>
                             </div>
-
+{/* 
                             <div className="leftInside">
                             <label htmlFor="address">address</label>
                             <input id="address"  type="text"/>
@@ -44,12 +46,12 @@ function AddNewStudent() {
                            <div className="leftInside">
                            <label htmlFor="landNum">Land Number</label>
                             <input id="landNum" type="text"/>
-                           </div>
+                           </div> */}
                             
                             
                         </div>
 
-                        <div className="right">
+                        {/* <div className="right">
                             <div className="rightInside">
                             <label htmlFor="mobileNum">mobileNum</label>
                             <input id="mobileNum" type="text"/>
@@ -67,12 +69,12 @@ function AddNewStudent() {
 
                             
                             
-                        </div>  
+                        </div>   */}
                         
                     </div>
-                    <br/> <br/>
+                    {/* <br/> <br/> */}
 
-                <h2>Sem results</h2>
+                {/* <h2>Sem results</h2>
 
                     <div className="semResult">
                         
@@ -134,11 +136,11 @@ function AddNewStudent() {
                         </div>
                     </div>
 
-                    </div>
+                    </div> */}
 
                     
                     
-                        <input onClick={sendDetails} type="submit"/>
+                        <input type="submit"/>
                 </form>
                 
               
