@@ -11,7 +11,9 @@ function AddNewStudent() {
     const sendDetails = (e)=>{
         e.preventDefault();
         console.log(e.target.elements.index.value)
-        console.log(e.target.elements.fullName.value)
+        console.log(e.target.elements.sem1_sub1.value)
+
+        
 
     }
 
@@ -34,47 +36,57 @@ function AddNewStudent() {
                             </div>
 
                             <div className="leftInside">
-                            <label htmlFor="fullName">fullName</label>
+                            <label htmlFor="fullName">Full Name</label>
                             <input id="fullName" name="fullName" type="text"/>
                             </div>
-{/* 
+
                             <div className="leftInside">
-                            <label htmlFor="address">address</label>
-                            <input id="address"  type="text"/>
+                            <label htmlFor="address">Address</label>
+                            <input id="address" name="address"  type="text"/>
                             </div>
                             
                            <div className="leftInside">
-                           <label htmlFor="landNum">Land Number</label>
-                            <input id="landNum" type="text"/>
-                           </div> */}
+                           <label htmlFor="landNum">Telephone Number</label>
+                            <input id="landNum" name="landNum" type="text"/>
+                           </div>
+
+                           <div className="leftInside">
+                            <label htmlFor="mobileNum">Mobile Number</label>
+                            <input id="mobileNum" name="mobileNum" type="text"/>
+                            </div>
                             
                             
                         </div>
 
-                        {/* <div className="right">
+                        <div className="right">
                             <div className="rightInside">
-                            <label htmlFor="mobileNum">mobileNum</label>
-                            <input id="mobileNum" type="text"/>
+                            <label htmlFor="grade">Grade</label>
+                            <input id="grade" name="grade" type="text"/>
                             </div>
 
                             <div className="rightInside">
-                            <label htmlFor="motherName">motherName</label>
-                            <input id="motherName" type="text"/>
+                            <label htmlFor="class">Class</label>
+                            <input id="class" name="class" type="text"/>
                             </div>
 
                             <div className="rightInside">
-                            <label htmlFor="fatherName">fatherName</label>
-                            <input id="fatherName" type="text"/>
+                            <label htmlFor="motherName">Mother's Name</label>
+                            <input id="motherName" name="motherName" type="text"/>
+                            </div>
+
+                            <div className="rightInside">
+                            <label htmlFor="fatherName">Father's Name</label>
+                            <input id="fatherName" name="fatherName" type="text"/>
                             </div>
 
                             
                             
-                        </div>   */}
+                        </div>  
                         
                     </div>
-                    {/* <br/> <br/> */}
+                    <br/> <br/>
 
-                {/* <h2>Sem results</h2>
+                <h2>Sem results</h2>
 
                     <div className="semResult">
                         
@@ -82,61 +94,61 @@ function AddNewStudent() {
                     <div className="sem">
                         <h4>Semester 1</h4>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem1_sub1" placeholder="subject"/>  : <input type="text" name="sem1_sub1_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem1_sub2" placeholder="subject"/>  : <input type="text" name="sem1_sub2_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem1_sub3" placeholder="subject"/>  : <input type="text" name="sem1_sub3_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem1_sub4" placeholder="subject"/>  : <input type="text" name="sem1_sub4_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem1_sub5" placeholder="subject"/>  : <input type="text" name="sem1_sub5_marks" placeholder="marks"/>
                         </div>
                     </div>
 
                     <div className="sem">
                         <h4>Semester 2</h4>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem2_sub1" placeholder="subject"/>  : <input type="text" name="sem2_sub1_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem2_sub2" placeholder="subject"/>  : <input type="text" name="sem2_sub2_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem2_sub3" placeholder="subject"/>  : <input type="text" name="sem2_sub3_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem2_sub4" placeholder="subject"/>  : <input type="text" name="sem2_sub4_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem2_sub5" placeholder="subject"/>  : <input type="text" name="sem2_sub5_marks" placeholder="marks"/>
                         </div>
                     </div>
 
                     <div className="sem">
                         <h4>Semester 3</h4>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem3_sub1" placeholder="subject"/>  : <input type="text" name="sem3_sub1_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem3_sub2" placeholder="subject"/>  : <input type="text" name="sem3_sub2_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem3_sub3" placeholder="subject"/>  : <input type="text" name="sem3_sub3_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem3_sub4" placeholder="subject"/>  : <input type="text" name="sem3_sub4_marks" placeholder="marks"/>
                         </div>
                         <div className="sem_subject">
-                            <input type="text" placeholder="subject"/>  : <input type="text" placeholder="marks"/>
+                            <input type="text" name="sem3_sub5" placeholder="subject"/>  : <input type="text" name="sem3_sub5_marks" placeholder="marks"/>
                         </div>
                     </div>
 
-                    </div> */}
+                    </div>
 
                     
                     
