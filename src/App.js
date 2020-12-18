@@ -8,19 +8,14 @@ import { useEffect, useState } from 'react';
 import HomeIcon from '@material-ui/icons/Home';
 import ClassInside from './components/ClassInside'
 import StudentDetails from './components/StudentDetails';
+import AddNewStudent from './components/AddNewStudent'
 import axios from './axios';
 
 
 
 
 function App() {
-   const arr1 = [1,2,3,4,5];
-  const arr = {
-    1:["A","B","C","D","E"],
-    2:["A","B","C"],
-    3:["A","B","C","D"],
-    4:["A","B","C","D"],
-  }
+   
 
   const [school, setSchool] = useState([])
 
@@ -102,6 +97,7 @@ function App() {
             <Route exact  path="/grade/:grade" component={GradeBody}/>
             <Route exact path="/grade/:grade/:class"  component={ClassInside}/>
             <Route path="/grade/:grade/:class/:student" component={StudentDetails}/>
+            <Route path="/home/addNewStudent" component={AddNewStudent} />
           </Switch>  
           
         </div>

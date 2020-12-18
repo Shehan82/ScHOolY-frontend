@@ -41,7 +41,7 @@ function Class(props) {
                 title={`Class ${props.className}`}
                 />
 
-                <CardContent >
+                <CardContent style={{backgroundColor:"#282b34"}} >
                     <Typography  gutterBottom variant="h5" component="h2">
                         Class {props.className}
                     </Typography>

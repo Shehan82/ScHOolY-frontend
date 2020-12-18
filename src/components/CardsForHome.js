@@ -12,8 +12,8 @@ import { SignalWifi1BarLockSharp } from '@material-ui/icons';
 function CardsForHome(props) {
     const useStyles = makeStyles({
         root: {
-          width:200,
-          height:230,
+          width:180,
+       
           
           backgroundColor: "rgb(66, 66, 66)",
           color:"white",
@@ -39,8 +39,8 @@ function CardsForHome(props) {
                     title={`Class`}
                     />
     
-                    <CardContent >
-                        <Typography  gutterBottom variant="h6" component="h2">
+                    <CardContent style={{backgroundColor:"#282b34"}} >
+                        <Typography  >
                           {props.title}
                         </Typography>
                         
