@@ -66,29 +66,29 @@ function AddNewStudent() {
         sem : [
             {
                 marks : {
-                  sem1_sub1 : sem1_sub1_marks,
-                  sem1_sub2 : sem1_sub2_marks,
-                  sem1_sub3 : sem1_sub3_marks,
-                  sem1_sub4 : sem1_sub4_marks,
-                  sem1_sub5 : sem1_sub5_marks,
+                  [sem1_sub1] : sem1_sub1_marks,
+                  [sem1_sub2] : sem1_sub2_marks,
+                  [sem1_sub3] : sem1_sub3_marks,
+                  [sem1_sub4] : sem1_sub4_marks,
+                  [sem1_sub5] : sem1_sub5_marks,
                 }
             },
             {
                 marks : {
-                    sem2_sub1 : sem2_sub1_marks,
-                    sem2_sub2 : sem2_sub2_marks,
-                    sem2_sub3 : sem2_sub3_marks,
-                    sem2_sub4 : sem2_sub4_marks,
-                    sem2_sub5 : sem2_sub5_marks,
+                    [sem2_sub1] : sem2_sub1_marks,
+                    [sem2_sub2] : sem2_sub2_marks,
+                    [sem2_sub3] : sem2_sub3_marks,
+                    [sem2_sub4] : sem2_sub4_marks,
+                    [sem2_sub5] : sem2_sub5_marks,
                 }
             },
             {
                 marks : {
-                    sem3_sub1 : sem3_sub1_marks,
-                    sem3_sub2 : sem3_sub2_marks,
-                    sem3_sub3 : sem3_sub3_marks,
-                    sem3_sub4 : sem3_sub4_marks,
-                    sem3_sub5 : sem3_sub5_marks,
+                    [sem3_sub1] : sem3_sub1_marks,
+                    [sem3_sub2] : sem3_sub2_marks,
+                    [sem3_sub3] : sem3_sub3_marks,
+                    [sem3_sub4] : sem3_sub4_marks,
+                    [sem3_sub5] : sem3_sub5_marks,
                 }
             }
         ]
