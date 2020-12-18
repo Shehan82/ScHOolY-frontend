@@ -8,7 +8,13 @@ import { useEffect, useState } from 'react';
 import HomeIcon from '@material-ui/icons/Home';
 import ClassInside from './components/ClassInside'
 import StudentDetails from './components/StudentDetails';
-import AddNewStudent from './components/AddNewStudent'
+import AddNewStudent from './components/Home/AddNewStudent';
+import UpdateStudent from './components/Home/UpdateStudent';
+import RemoveStudent from './components/Home/RemoveStudent';
+import AddNewGrade from './components/Home/AddNewGrade';
+import UpdateGrade from './components/Home/UpdateGrade';
+import RemoveGrade from './components/Home/RemoveGrade';
+
 import axios from './axios';
 
 
@@ -98,6 +104,11 @@ function App() {
             <Route exact path="/grade/:grade/:class"  component={ClassInside}/>
             <Route path="/grade/:grade/:class/:student" component={StudentDetails}/>
             <Route path="/home/addNewStudent" component={AddNewStudent} />
+            <Route path="/home/updateStudent" component={UpdateStudent} />
+            <Route path="/home/removeStudent" component={RemoveStudent} />
+            <Route path="/home/addNewGrade" component={AddNewGrade} />
+            <Route path="/home/updateGrade" component={UpdateGrade} />
+            <Route path="/home/removeGrade" component={RemoveGrade} />
           </Switch>  
           
         </div>
