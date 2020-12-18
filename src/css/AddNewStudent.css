@@ -1,0 +1,91 @@
+.AddNewStudent__header
+{
+    margin-left: 10px;
+    width: fit-content;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
+
+.mainDetails
+{
+   
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid blue; */
+    justify-content: space-between;
+    padding: 0px;
+    width: 80%;
+    margin: 0px auto 0px auto;
+   
+}
+
+.left
+{
+    display: flex;
+    flex-direction: column;
+    flex: 0.4;
+    margin-right: 10px;
+    /* border: 2px solid red; */
+    
+}
+
+.leftInside
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right
+{
+    display: flex;
+    flex-direction: column;
+    flex: 0.4;
+    margin-left: 10px;
+    /* border: 2px solid red; */
+}
+
+.rightInside
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.semResult
+{
+    /* border: 2px solid red;  */
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 30px;
+    /* border: 2px solid white; */
+    justify-items: center;
+    
+    
+}
+
+.sem input
+{
+    width: 130px;
+    height: 30px;
+    font-size: 17px;
+}
+
+.sem
+{
+    /* border: 2px solid blue;  */
+    flex: 0.4;
+    margin-right: 15px;
+    padding: 10px;
+}
+
+.sem_subject
+{
+    margin-top: 10px;
+    display: flex;
+   
+}
+
+
+
