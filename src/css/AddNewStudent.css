@@ -26,7 +26,7 @@
     border: none;
     outline: none;
     border-radius: 8px;
-    /* background-color: rgb(255, 255, 255, 0.6); */
+    background-color: rgb(255, 255, 255, 0.6);
     height: 25px;
     
     font-weight: 800;
@@ -90,7 +90,7 @@
     border: none;
     outline: none;
     
-    /* background-color: rgb(255, 255, 255, 0.6); */
+    background-color: rgb(255, 255, 255);
     font-weight: 800;
     
 }

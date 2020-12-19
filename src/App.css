@@ -21,6 +21,7 @@
 .App__bodyContainer
 {
   /* border: 6px solid green; */
+  min-height: 755px;
   display: flex;
   height: 94vh;
   
