@@ -9,6 +9,8 @@ import { NoMeetingRoom } from "@material-ui/icons";
 function AddResults() {
   var gradeArr = [];
   var marksArrObj = [];
+  var dropDownSub = [];
+  var dropDownMarks = [];
   var i = 0;
   var cars = ["Saab", "Volvo", "BMW"];
   const [index, setindex] = useState(1234);
@@ -44,6 +46,19 @@ function AddResults() {
     //       alert("register unsuccess!");
     //     }
     //   });
+
+    var dropDownSubjects = document.querySelectorAll(".subject");
+    var x = dropDownSubjects[0].options[dropDownSubjects[0].selectedIndex].text;
+    var t = document.getElementsByClassName("dropDownInput");
+    var y = t[0].value;
+    console.log(y);
+
+    for (var j = 0; j < t.length; j++) {
+      marksArrObj.push({
+        [dropDownSubjects[j].options[dropDownSubjects[j].selectedIndex].text]:
+          t[j].value,
+      });
+    }
 
     console.log(marksArrObj);
   };
@@ -164,13 +179,16 @@ function AddResults() {
 
               {kSubjects.map((sub) => (
                 <div className="leftInside">
-                  <select name="grade" id="grade">
+                  {/* ////////////////////////////////////////// */}
+                  <select className="subject" name="subject" id="subject">
                     <option value="default">Select Subject</option>
                     {sub.map((s) => (
                       <option value={s}>{s}</option>
                     ))}
                   </select>
-                  <input type="text" />
+                  {/* //////////////////////////////////////////////////// */}
+                  <input className="dropDownInput" type="text" />
+                  {/* //////////////////////////////////////////// */}
                 </div>
               ))}
             </div>
