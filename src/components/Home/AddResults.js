@@ -14,9 +14,9 @@ function AddResults() {
   var i = 0;
   var cars = ["Saab", "Volvo", "BMW"];
   const [index, setindex] = useState(1234);
-  const [term, setterm] = useState("");
-  const [marks, setmarks] = useState({});
+  const [term, setterm] = useState(0);
   const [grade, setgrade] = useState([]);
+  const [grd, setgrd] = useState(0);
   const [gradeData, setgradeData] = useState([]);
   const [subjectData, setsubjectData] = useState([]);
   const [selectedVal, setselectedVal] = useState(0);
@@ -31,36 +31,57 @@ function AddResults() {
   gradeData.map((grade) => gradeArr.push(grade.grade));
 
   const sendDetails = (e) => {
-    // axios
-    //   .post("/create", {
-    //     index: index,
-    //     term: term,
-    //     grade: grade,
-    //     marks: marks,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res.data == "ok") {
-    //       alert("Register Successfully!");
-    //     } else {
-    //       alert("register unsuccess!");
-    //     }
-    //   });
-
-    var dropDownSubjects = document.querySelectorAll(".subject");
-    var x = dropDownSubjects[0].options[dropDownSubjects[0].selectedIndex].text;
-    var t = document.getElementsByClassName("dropDownInput");
-    var y = t[0].value;
-    console.log(y);
-
-    for (var j = 0; j < t.length; j++) {
-      marksArrObj.push({
-        [dropDownSubjects[j].options[dropDownSubjects[j].selectedIndex].text]:
-          t[j].value,
-      });
+    var checkEmpty = 0;
+    var elements = document.getElementsByTagName("input");
+    for (var ii = 0; ii < elements.length; ii++) {
+      if (elements[ii].value == "") {
+        checkEmpty = checkEmpty + 1;
+      }
     }
 
-    console.log(marksArrObj);
+    if (checkEmpty == 0) {
+      var dropDownSubjects = document.querySelectorAll(".subject");
+      var x =
+        dropDownSubjects[0].options[dropDownSubjects[0].selectedIndex].text;
+      var t = document.getElementsByClassName("dropDownInput");
+      var y = t[0].value;
+      console.log(y);
+
+      for (var j = 0; j < t.length; j++) {
+        marksArrObj.push({
+          [dropDownSubjects[j].options[dropDownSubjects[j].selectedIndex].text]:
+            t[j].value,
+        });
+      }
+
+      console.log(marksArrObj);
+
+      axios
+        .post("/createResult", {
+          index: index,
+          term: term,
+          grade: grd,
+          marks: marksArrObj,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.data == "ok") {
+            alert("Result Saved!");
+          } else {
+            alert("Result Unsaved!");
+          }
+        });
+
+      for (var ii = 0; ii < elements.length; ii++) {
+        if (elements[ii].type == "text") {
+          elements[ii].value = "";
+        }
+      }
+
+      marksArrObj = [];
+    } else {
+      alert("Please fill all field");
+    }
   };
 
   const checkValidation = (e) => {
@@ -71,6 +92,8 @@ function AddResults() {
 
   const loadSubjects = (e) => {
     // setgradeSelectVal(parseInt(e.target.value));
+
+    setgrd(parseInt(e.target.value));
 
     axios.get("/gradeSub").then((res) => {
       setsubjectData(res.data);
@@ -126,11 +149,17 @@ function AddResults() {
 
               <div className="leftInside">
                 <label htmlFor="term">Term</label>
-                <select name="term" id="term">
+                <select
+                  onChange={(e) => {
+                    setterm(parseInt(e.target.value));
+                  }}
+                  name="term"
+                  id="term"
+                >
                   <option value="default">Select Term</option>
-                  <option value="t1">Term 1</option>
-                  <option value="t2">Term 2</option>
-                  <option value="t3">Term 3</option>
+                  <option value="1">Term 1</option>
+                  <option value="2">Term 2</option>
+                  <option value="3">Term 3</option>
                 </select>
               </div>
 
