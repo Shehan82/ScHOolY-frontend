@@ -29,19 +29,19 @@ function App() {
       setSchool(res.data);
     });
 
-    // axios.post("./gradeSub", {
-    //   grade: 4,
-    //   subjects: {
-    //     s1: "Sinhala",
-    //     s2: "Maths",
-    //     s3: "English",
-    //     s4: "History",
-    //     s5: "Buddhisam",
-    //     s6: "Science",
-    //     k1: ["Health", "Arts & Craft", "Civic"],
-    //     k2: ["Art", "IT"],
-    //   },
-    // });
+    axios.post("./gradeSub", {
+      grade: 3,
+      subjects: {
+        s1: "Sinhala",
+        s2: "Maths",
+        s5: "Buddhisam",
+        s6: "Science",
+        k1: ["Health", "Arts & Craft", "Civic"],
+        k2: ["Art", "IT"],
+        k3: ["Pure Maths", "Applied Maths"],
+        k4: ["chemistry", "physics"],
+      },
+    });
   }, []);
 
   const [active, setActive] = useState({

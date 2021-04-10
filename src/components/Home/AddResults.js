@@ -8,8 +8,11 @@ import { NoMeetingRoom } from "@material-ui/icons";
 
 function AddResults() {
   var gradeArr = [];
+  var marksArrObj = [];
   var cars = ["Saab", "Volvo", "BMW"];
   const [index, setindex] = useState(1234);
+  const [term, setterm] = useState("");
+  const [marks, setmarks] = useState({});
   const [grade, setgrade] = useState([]);
   const [gradeData, setgradeData] = useState([]);
   const [subjectData, setsubjectData] = useState([]);
@@ -25,18 +28,23 @@ function AddResults() {
   gradeData.map((grade) => gradeArr.push(grade.grade));
 
   const sendDetails = (e) => {
-    axios
-      .post("/create", {
-        index: `${index}`,
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data == "ok") {
-          alert("Register Successfully!");
-        } else {
-          alert("register unsuccess!");
-        }
-      });
+    // axios
+    //   .post("/create", {
+    //     index: index,
+    //     term: term,
+    //     grade: grade,
+    //     marks: marks,
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     if (res.data == "ok") {
+    //       alert("Register Successfully!");
+    //     } else {
+    //       alert("register unsuccess!");
+    //     }
+    //   });
+
+    console.log(marksArrObj);
   };
 
   const checkValidation = (e) => {
@@ -128,7 +136,26 @@ function AddResults() {
               {normalSubjects.map((sub) => (
                 <div className="leftInside">
                   <label htmlFor={sub}>{sub}</label>
-                  <input id={sub} name={sub} type="text" />
+                  <input
+                    id={sub}
+                    name={sub}
+                    type="text"
+                    onBlur={(e) => {
+                      marksArrObj.push({ [sub]: e.target.value });
+                    }}
+                  />
+                </div>
+              ))}
+
+              {kSubjects.map((sub) => (
+                <div className="leftInside">
+                  <select name="grade" id="grade">
+                    <option value="default">Select Subject</option>
+                    {sub.map((s) => (
+                      <option value={s}>{s}</option>
+                    ))}
+                  </select>
+                  <input type="text" />
                 </div>
               ))}
             </div>
