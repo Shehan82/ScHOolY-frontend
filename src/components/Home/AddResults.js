@@ -4,13 +4,17 @@ import "../../css/AddResults.css";
 
 import axios from "../../axios";
 import Button from "@material-ui/core/Button";
+import { NoMeetingRoom } from "@material-ui/icons";
 
 function AddResults() {
   var gradeArr = [];
+  var cars = ["Saab", "Volvo", "BMW"];
   const [index, setindex] = useState(1234);
   const [grade, setgrade] = useState([]);
   const [gradeData, setgradeData] = useState([]);
-  const [gradeSelectVal, setgradeSelectVal] = useState(0);
+  const [subjectData, setsubjectData] = useState([]);
+  const [selectedVal, setselectedVal] = useState(0);
+  var name = "shena";
 
   useEffect(() => {
     axios.get("/grade").then((res) => {
@@ -42,10 +46,38 @@ function AddResults() {
   };
 
   const loadSubjects = (e) => {
-    setgradeSelectVal(parseInt(e.target.value));
+    // setgradeSelectVal(parseInt(e.target.value));
+
+    axios.get("/gradeSub").then((res) => {
+      setsubjectData(res.data);
+      setselectedVal(parseInt(e.target.value));
+    });
   };
 
-  console.log(gradeSelectVal);
+  var normalSubjects = [];
+  var kSubjects = [];
+
+  const dividerSubjects = (arr) => {
+    arr.map((grade) => {
+      if (grade.grade == selectedVal) {
+        Object.entries(grade.subjects).forEach(([key, value]) => {
+          //   console.log(value);
+          if (typeof value == "string") {
+            normalSubjects.push(value);
+          } else {
+            kSubjects.push(value);
+          }
+        });
+      }
+    });
+  };
+
+  dividerSubjects(subjectData);
+
+  console.log(normalSubjects);
+  console.log(kSubjects);
+
+  console.log(typeof gradeArr == "object" ? "fuck" : "yeach");
 
   return (
     <div>
@@ -54,7 +86,7 @@ function AddResults() {
       </div>
       <div className="AddNewStudent__formContainer">
         <form onSubmit={checkValidation}>
-          <div className="mainDetails">
+          <div id="mainDetails" className="mainDetails">
             <div className="left">
               <div className="leftInside">
                 <label htmlFor="index">Index</label>
@@ -93,6 +125,12 @@ function AddResults() {
                   ))}
                 </select>
               </div>
+              {normalSubjects.map((sub) => (
+                <div className="leftInside">
+                  <label htmlFor={sub}>{sub}</label>
+                  <input id={sub} name={sub} type="text" />
+                </div>
+              ))}
             </div>
           </div>
           <br /> <br />
