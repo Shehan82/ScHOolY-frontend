@@ -9,6 +9,7 @@ import { NoMeetingRoom } from "@material-ui/icons";
 function AddResults() {
   var gradeArr = [];
   var marksArrObj = [];
+  var i = 0;
   var cars = ["Saab", "Volvo", "BMW"];
   const [index, setindex] = useState(1234);
   const [term, setterm] = useState("");
@@ -141,7 +142,21 @@ function AddResults() {
                     name={sub}
                     type="text"
                     onBlur={(e) => {
-                      marksArrObj.push({ [sub]: e.target.value });
+                      i = 0;
+                      if (marksArrObj.length == 0) {
+                        marksArrObj.push({ [sub]: e.target.value });
+                      } else {
+                        marksArrObj.map((subMarks) => {
+                          if (Object.keys(subMarks)[0] == sub) {
+                            subMarks[sub] = e.target.value;
+                            i = i + 1;
+                          }
+                        });
+
+                        if (i == 0) {
+                          marksArrObj.push({ [sub]: e.target.value });
+                        }
+                      }
                     }}
                   />
                 </div>
