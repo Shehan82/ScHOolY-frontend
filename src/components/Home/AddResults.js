@@ -1,34 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/AddNewStudent.css";
 import "../../css/AddResults.css";
 
 import axios from "../../axios";
 import Button from "@material-ui/core/Button";
-import { Dropdown } from "react-bootstrap";
 
 function AddResults() {
+  var gradeArr = [];
   const [index, setindex] = useState(1234);
-  const [fullName, setfullName] = useState("");
-  const [address, setaddress] = useState("");
-  const [telePhone, settelePhone] = useState("");
-  const [mobilePhone, setmobilePhone] = useState("");
-  const [grade, setgrade] = useState("");
-  const [cls, setcls] = useState("");
-  const [motherName, setmotherName] = useState("");
-  const [fatherName, setfatherName] = useState("");
+  const [grade, setgrade] = useState([]);
+  const [gradeData, setgradeData] = useState([]);
+  const [gradeSelectVal, setgradeSelectVal] = useState(0);
+
+  useEffect(() => {
+    axios.get("/grade").then((res) => {
+      setgradeData(res.data);
+    });
+  }, []);
+
+  gradeData.map((grade) => gradeArr.push(grade.grade));
 
   const sendDetails = (e) => {
     axios
       .post("/create", {
         index: `${index}`,
-        fullName: `${fullName}`,
-        address: `${address}`,
-        landNum: `${telePhone}`,
-        mobileNum: `${mobilePhone}`,
-        mothersName: `${motherName}`,
-        fathersName: `${fatherName}`,
-        grade: `${grade}`,
-        class: `${cls}`,
       })
       .then((res) => {
         console.log(res);
@@ -45,6 +40,12 @@ function AddResults() {
 
     sendDetails(e);
   };
+
+  const loadSubjects = (e) => {
+    setgradeSelectVal(parseInt(e.target.value));
+  };
+
+  console.log(gradeSelectVal);
 
   return (
     <div>
@@ -79,11 +80,17 @@ function AddResults() {
 
               <div className="leftInside">
                 <label htmlFor="grade">Grade</label>
-                <select name="grade" id="grade">
+                <select
+                  onChange={(e) => {
+                    loadSubjects(e);
+                  }}
+                  name="grade"
+                  id="grade"
+                >
                   <option value="default">Select Grade</option>
-                  <option value="t1">Term 1</option>
-                  <option value="t2">Term 2</option>
-                  <option value="t3">Term 3</option>
+                  {gradeArr.map((grd) => (
+                    <option value={grd}>Grade {grd}</option>
+                  ))}
                 </select>
               </div>
             </div>

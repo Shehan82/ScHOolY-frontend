@@ -28,6 +28,20 @@ function App() {
     axios.get("/grade").then((res) => {
       setSchool(res.data);
     });
+
+    // axios.post("./gradeSub", {
+    //   grade: 4,
+    //   subjects: {
+    //     s1: "Sinhala",
+    //     s2: "Maths",
+    //     s3: "English",
+    //     s4: "History",
+    //     s5: "Buddhisam",
+    //     s6: "Science",
+    //     k1: ["Health", "Arts & Craft", "Civic"],
+    //     k2: ["Art", "IT"],
+    //   },
+    // });
   }, []);
 
   const [active, setActive] = useState({
