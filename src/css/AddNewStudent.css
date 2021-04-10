@@ -1,134 +1,72 @@
-.AddNewStudent__header
-{
-    margin-left: 10px;
-    width: fit-content;
-    padding: 10px 0px 10px 0px;
-    border-bottom: 1px solid white;
-    margin-bottom: 20px;
+.AddNewStudent__header {
+  margin-left: 10px;
+  width: fit-content;
+  padding: 10px 0px 10px 0px;
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
 }
 
-.mainDetails
-{
-   
-    display: flex;
-    flex-direction: row;
-    border: 1px solid gray;
-    padding: 20px;
-    justify-content: space-between;
-    margin-left: 10px ;
-    margin-top: 20px;
-    border-radius: 10px;
-   
+.mainDetails {
+  display: flex;
+
+  border: 1px solid gray;
+  padding: 20px;
+  /* justify-content: space-between; */
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  /* border: 2px solid red; */
 }
 
-.mainDetails input
-{
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    background-color: rgb(255, 255, 255, 0.6);
-    height: 25px;
-    
-    font-weight: 800;
+.mainDetails input {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255, 0.6);
+  height: 25px;
+  padding-left: 10px;
+  width: 180px;
+  font-weight: 800;
 }
 
-.left
-{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin-right: 20px;
-    margin-left: 15%;
-    /* border: 2px solid red; */
-    
+.mainDetails select {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255, 0.6);
+  height: 25px;
+  width: 190px;
+  padding-left: 10px;
+
+  font-weight: 800;
 }
 
-.leftInside
-{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-right: 20px;
+  margin: 0 auto 0 auto;
+  /* border: 2px solid red; */
 }
 
-.right
-{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin-left: 20px;
-    margin-right: 15%;
-    /* border: 2px solid red; */
+.leftInside {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.rightInside
-{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+.span__sub {
+  margin: 10px;
 }
 
-.semResult
-{
-    border: 1px solid gray; 
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-row-gap: 30px;
-    margin-left: 10px ;
-    margin-top: 20px;
-    border-radius: 10px;
-    padding: 20px;
-    justify-items: center;
-    
-    
+.headers {
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
-.sem input
-{
-    width: 120px;
-    height: 25px;
-    font-size: 17px;
-    border: none;
-    outline: none;
-    
-    background-color: rgb(255, 255, 255);
-    font-weight: 800;
-    
+.submitButton {
+  margin-top: 30px;
+  /* margin: 30px auto 0px auto; */
+  text-align: center;
 }
-
-.sem
-{
-    /* border: 1px solid gray;  */
-    /* border-radius: 10px; */
-    margin-right: 10px;
-    width: fit-content;
-    padding: 20px;
-}
-
-.sem_subject
-{
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-   
-}
-
-.span__sub
-{
-    margin: 10px;
-}
-
-.headers
-{
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.submitButton
-{
-    margin-top: 30px;
-    /* margin: 30px auto 0px auto; */
-    text-align: center;
-}
-
-
-
