@@ -4,15 +4,13 @@ import "../../css/AddResults.css";
 
 import axios from "../../axios";
 import Button from "@material-ui/core/Button";
-import { NoMeetingRoom } from "@material-ui/icons";
 
 function AddResults() {
+  var i = 0;
+  var normalSubjects = [];
+  var kSubjects = [];
   var gradeArr = [];
   var marksArrObj = [];
-  var dropDownSub = [];
-  var dropDownMarks = [];
-  var i = 0;
-  var cars = ["Saab", "Volvo", "BMW"];
   const [index, setindex] = useState(1234);
   const [term, setterm] = useState(0);
   const [grade, setgrade] = useState([]);
@@ -20,19 +18,23 @@ function AddResults() {
   const [gradeData, setgradeData] = useState([]);
   const [subjectData, setsubjectData] = useState([]);
   const [selectedVal, setselectedVal] = useState(0);
-  var name = "shena";
 
+  //   useEffect hook
   useEffect(() => {
     axios.get("/grade").then((res) => {
       setgradeData(res.data);
     });
   }, []);
 
+  //   making array with the all grades in the school
   gradeData.map((grade) => gradeArr.push(grade.grade));
 
+  // post data to the backend
   const sendDetails = (e) => {
     var checkEmpty = 0;
     var elements = document.getElementsByTagName("input");
+
+    // check all the input fields are filled
     for (var ii = 0; ii < elements.length; ii++) {
       if (elements[ii].value == "") {
         checkEmpty = checkEmpty + 1;
@@ -40,13 +42,11 @@ function AddResults() {
     }
 
     if (checkEmpty == 0) {
+      //get the all element subject class and dropdown input class
       var dropDownSubjects = document.querySelectorAll(".subject");
-      var x =
-        dropDownSubjects[0].options[dropDownSubjects[0].selectedIndex].text;
       var t = document.getElementsByClassName("dropDownInput");
-      var y = t[0].value;
-      console.log(y);
 
+      // push the dropdown subjects and related input fields value to the marksarrObj
       for (var j = 0; j < t.length; j++) {
         marksArrObj.push({
           [dropDownSubjects[j].options[dropDownSubjects[j].selectedIndex].text]:
@@ -72,43 +72,41 @@ function AddResults() {
           }
         });
 
+      // empty the all input fields after request made
       for (var ii = 0; ii < elements.length; ii++) {
         if (elements[ii].type == "text") {
           elements[ii].value = "";
         }
       }
 
+      // make marks array empty ones add results button pressed
       marksArrObj = [];
     } else {
       alert("Please fill all field");
     }
   };
 
+  // add result button triggerd function
   const checkValidation = (e) => {
     e.preventDefault();
-
     sendDetails(e);
   };
 
   const loadSubjects = (e) => {
-    // setgradeSelectVal(parseInt(e.target.value));
-
     setgrd(parseInt(e.target.value));
 
+    //get all subject data and set it to the subject data state
     axios.get("/gradeSub").then((res) => {
       setsubjectData(res.data);
       setselectedVal(parseInt(e.target.value));
     });
   };
 
-  var normalSubjects = [];
-  var kSubjects = [];
-
+  // divide subject details to normal subjects and selection subjects
   const dividerSubjects = (arr) => {
     arr.map((grade) => {
       if (grade.grade == selectedVal) {
         Object.entries(grade.subjects).forEach(([key, value]) => {
-          //   console.log(value);
           if (typeof value == "string") {
             normalSubjects.push(value);
           } else {
@@ -120,11 +118,6 @@ function AddResults() {
   };
 
   dividerSubjects(subjectData);
-
-  console.log(normalSubjects);
-  console.log(kSubjects);
-
-  console.log(typeof gradeArr == "object" ? "fuck" : "yeach");
 
   return (
     <div>
@@ -187,6 +180,7 @@ function AddResults() {
                     type="text"
                     onBlur={(e) => {
                       i = 0;
+                      // avoid duplicating values to the marksArrObj when user change input fields twice or more time
                       if (marksArrObj.length == 0) {
                         marksArrObj.push({ [sub]: e.target.value });
                       } else {
@@ -208,16 +202,14 @@ function AddResults() {
 
               {kSubjects.map((sub) => (
                 <div className="leftInside">
-                  {/* ////////////////////////////////////////// */}
+                  {/* added drop down list with the related option values */}
                   <select className="subject" name="subject" id="subject">
                     <option value="default">Select Subject</option>
                     {sub.map((s) => (
                       <option value={s}>{s}</option>
                     ))}
                   </select>
-                  {/* //////////////////////////////////////////////////// */}
                   <input className="dropDownInput" type="text" />
-                  {/* //////////////////////////////////////////// */}
                 </div>
               ))}
             </div>
@@ -232,7 +224,6 @@ function AddResults() {
             >
               Add Results
             </Button>
-            {/* <input type="submit"/>  */}
           </div>
         </form>
       </div>
