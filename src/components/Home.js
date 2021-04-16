@@ -33,7 +33,7 @@ function Home() {
             image={
               "https://previews.123rf.com/images/mialima/mialima1608/mialima160800062/61663579-student-line-icon-isolated-on-a-white-background-college-or-university-graduation-sign.jpg"
             }
-            title={"Update student"}
+            title={"Change Details"}
           />
         </Link>
 
