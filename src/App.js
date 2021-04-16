@@ -14,6 +14,7 @@ import RemoveStudent from "./components/Home/RemoveStudent";
 import AddNewGrade from "./components/Home/AddNewGrade";
 import UpdateGrade from "./components/Home/UpdateGrade";
 import RemoveGrade from "./components/Home/RemoveGrade";
+import EditDetails from "./components/EditDetails";
 
 import axios from "./axios";
 import AddResults from "./components/Home/AddResults";
@@ -135,6 +136,10 @@ function App() {
               <Route path="/home/updateGrade" component={UpdateGrade} />
               <Route path="/home/removeGrade" component={RemoveGrade} />
               <Route path="/home/addResults" component={AddResults} />
+              <Route
+                path="/editStudentDetails/:index"
+                component={EditDetails}
+              />
             </Switch>
           </div>
         </div>

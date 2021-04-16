@@ -37,7 +37,6 @@ function ChangeStudentDetails() {
           <input
             id="inputField"
             onChange={(e) => {
-              console.log(e.target.value);
               if (e.target.value == "") {
                 setsearchResult("");
               } else {
@@ -79,9 +78,7 @@ function ChangeStudentDetails() {
                       </TableCell>
                       <TableCell align="left">{student.fullName}</TableCell>
                       <TableCell align="center">
-                        <Link
-                          to={`/grade/${student.grade}/${student.class}/${student.index}`}
-                        >
+                        <Link to={`/editStudentDetails/${student.index}`}>
                           <IconButton
                             onClick={() => {
                               console.log("df");
