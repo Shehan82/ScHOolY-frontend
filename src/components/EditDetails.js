@@ -27,19 +27,6 @@ function EditDetails({ match }) {
     });
   };
 
-  console.log(studentDetails.index);
-
-  //   setindex(studentDetails.index);
-  //   setfullName(studentDetails.fullName);
-  //   setaddress(studentDetails.address);
-  //   setmobilePhone(studentDetails.mobileNum);
-  //   setgrade(studentDetails.grade);
-  //   settelePhone(studentDetails.landNum);
-  //   setcls(studentDetails.class);
-  //   setmotherName(studentDetails.mothersName);
-  //   setfatherName(studentDetails.fathersName);
-  //   console.log(document.getElementsByName("fullName")[0].value);
-
   const sendDetails = (e) => {
     axios
       .post("/updateStu", {
@@ -61,10 +48,6 @@ function EditDetails({ match }) {
           alert("Update unsuccess!");
         }
       });
-
-    console.log(document.getElementsByName("fullName")[0].value);
-    console.log(document.getElementsByName("index")[0].value);
-    console.log(document.getElementsByName("motherName")[0].value);
   };
 
   const checkValidation = (e) => {
@@ -93,8 +76,6 @@ function EditDetails({ match }) {
         </div>
       </div>
 
-      {/* /////////////////////////////////////// */}
-
       <div className="AddNewStudent__formContainer">
         <form onSubmit={checkValidation}>
           <div className="mainDetails">
@@ -102,6 +83,7 @@ function EditDetails({ match }) {
               <div className="leftInside">
                 <label htmlFor="index">Index</label>
                 <input
+                  disabled
                   id="index"
                   name="index"
                   type="text"

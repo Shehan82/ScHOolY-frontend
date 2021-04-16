@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../css/changeStudentDetails.css";
 import Table from "@material-ui/core/Table";
@@ -11,6 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import axios from "../../axios";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -18,11 +19,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function ChangeStudentDetails() {
   const [searchText, setsearchText] = useState("");
   const [searchResult, setsearchResult] = useState([]);
+  const [removeResult, setremoveResult] = useState([]);
   const useStyles = makeStyles({
     table: {
       minWidth: 800,
     },
   });
+
+  useEffect(() => {
+    axios.get("/findAll").then((res) => {
+      setsearchResult(res.data);
+    });
+  }, [removeResult]);
 
   const classes = useStyles();
 
@@ -36,6 +44,7 @@ function ChangeStudentDetails() {
         <div className="inputField_div">
           <input
             id="inputField"
+            placeholder="Enter Student ID here . . ."
             onChange={(e) => {
               if (e.target.value == "") {
                 setsearchResult("");
@@ -65,6 +74,9 @@ function ChangeStudentDetails() {
                   <TableCell style={{ color: "white" }} align="center">
                     Edit Details
                   </TableCell>
+                  <TableCell style={{ color: "white" }} align="center">
+                    Remove Student
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -81,6 +93,12 @@ function ChangeStudentDetails() {
                         <Link to={`/editStudentDetails/${student.index}`}>
                           <IconButton
                             onClick={() => {
+                              // if (
+                              //   confirm("Do you Really want to Remove student")
+                              // ) {
+                              //   console.log("you pressed true");
+                              // }
+
                               console.log("df");
                             }}
                             style={{ color: "black" }}
@@ -89,6 +107,31 @@ function ChangeStudentDetails() {
                             <EditIcon />
                           </IconButton>
                         </Link>
+                      </TableCell>
+                      <TableCell align="center">
+                        {/* <Link to={`/editStudentDetails/${student.index}`}> */}
+                        <IconButton
+                          onClick={() => {
+                            if (
+                              window.confirm("Do you want to remove Student?")
+                            ) {
+                              axios
+                                .post("/removeStudent", {
+                                  index: student.index,
+                                })
+                                .then((res) => {
+                                  console.log(res.data);
+                                  setremoveResult(res.data);
+                                });
+                              console.log("df");
+                            }
+                          }}
+                          style={{ color: "black" }}
+                        >
+                          {" "}
+                          <HighlightOffIcon />
+                        </IconButton>
+                        {/* </Link> */}
                       </TableCell>
                     </TableRow>
                   ))
