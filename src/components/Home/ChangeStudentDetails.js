@@ -9,9 +9,10 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import VisibilityIcon from "@material-ui/icons/Visibility";
+import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "../../axios";
-import { CodeSharp } from "@material-ui/icons";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function ChangeStudentDetails() {
@@ -63,7 +64,7 @@ function ChangeStudentDetails() {
                     Full Name
                   </TableCell>
                   <TableCell style={{ color: "white" }} align="center">
-                    View Details
+                    Edit Details
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -88,7 +89,7 @@ function ChangeStudentDetails() {
                             style={{ color: "black" }}
                           >
                             {" "}
-                            <VisibilityIcon />
+                            <EditIcon />
                           </IconButton>
                         </Link>
                       </TableCell>
