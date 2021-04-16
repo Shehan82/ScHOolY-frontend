@@ -7,11 +7,18 @@
 }
 
 .container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
 }
 
-/* .inputField_div {
+.inputField_div {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .table_div {
-} */
+}
