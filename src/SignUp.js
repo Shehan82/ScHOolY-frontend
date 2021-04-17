@@ -4,7 +4,7 @@ import "./css/Login.css";
 import axios from "./axios";
 import { auth } from "./components/firebase";
 
-function Login() {
+function SignUp() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [error, seterror] = useState("");
@@ -12,14 +12,9 @@ function Login() {
   const sendData = () => {
     console.log(email, password);
 
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        seterror(err.message);
-      });
+    auth.createUserWithEmailAndPassword(email, password).catch((err) => {
+      seterror(err.message);
+    });
   };
   return (
     <div>
@@ -39,11 +34,11 @@ function Login() {
         id=""
         placeholder="password"
       />
-      <Link to={`/home`}>
+      <Link to={`/`}>
         <button onClick={sendData}>ksjfsjkhdf</button>
       </Link>
     </div>
   );
 }
 
-export default Login;
+export default SignUp;

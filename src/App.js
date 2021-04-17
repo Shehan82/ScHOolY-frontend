@@ -15,6 +15,7 @@ import AddNewGrade from "./components/Home/AddNewGrade";
 import UpdateGrade from "./components/Home/UpdateGrade";
 import RemoveGrade from "./components/Home/RemoveGrade";
 import EditDetails from "./components/EditDetails";
+import { auth } from "./components/firebase";
 
 import axios from "./axios";
 import AddResults from "./components/Home/AddResults";
@@ -23,6 +24,7 @@ axios.defaults.headers.get["Content-Type"] =
   "application/x-www-form-urlencoded";
 
 function App() {
+  const [key, setkey] = useState(0);
   const [school, setSchool] = useState([]);
   const [sID, setsID] = useState("");
 
@@ -51,7 +53,7 @@ function App() {
   });
 
   const classes = useStyles();
-
+  console.log(auth.currentUser);
   return (
     <Router>
       <div className="App">
