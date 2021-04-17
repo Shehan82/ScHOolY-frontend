@@ -24,10 +24,16 @@ axios.defaults.headers.get["Content-Type"] =
 
 function App() {
   const [school, setSchool] = useState([]);
+  const [sID, setsID] = useState("");
 
   useEffect(() => {
     axios.get("/grade").then((res) => {
       setSchool(res.data);
+    });
+
+    axios.get("/getsID").then((res) => {
+      console.log(res.data);
+      setsID(res.data);
     });
   }, []);
 
