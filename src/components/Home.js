@@ -37,14 +37,14 @@ function Home() {
           />
         </Link>
 
-        <Link style={{ textDecoration: "none" }} to="/home/removeStudent">
+        {/* <Link style={{ textDecoration: "none" }} to="/home/removeStudent">
           <CardsForHome
             image={
               "https://previews.123rf.com/images/azvector/azvector1809/azvector180900168/108450534-female-student-icon-graduation-cap-education-concept-icon-with-cancel-sign-student-icon-and-close-de.jpg"
             }
             title={"Remove student"}
           />
-        </Link>
+        </Link> */}
 
         <Link style={{ textDecoration: "none" }} to="/home/addNewGrade">
           <CardsForHome

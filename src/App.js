@@ -29,20 +29,6 @@ function App() {
     axios.get("/grade").then((res) => {
       setSchool(res.data);
     });
-
-    // axios.post("./gradeSub", {
-    //   grade: 3,
-    //   subjects: {
-    //     s1: "Sinhala",
-    //     s2: "Maths",
-    //     s5: "Buddhisam",
-    //     s6: "Science",
-    //     k1: ["Health", "Arts & Craft", "Civic"],
-    //     k2: ["Art", "IT"],
-    //     k3: ["Pure Maths","Applied Maths"],
-    //     k4:["chemistry", "physics"]
-    //   },
-    // });
   }, []);
 
   const [active, setActive] = useState({
@@ -115,7 +101,7 @@ function App() {
           {/* body */}
           <div className="App__body">
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/home" exact component={Home} />
               <Route exact path="/grade/:grade" component={GradeBody} />
               <Route
                 exact
