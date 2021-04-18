@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 
 function AddNewStudent() {
   var gradeArr = [];
+  var clsArr = [];
   const [index, setindex] = useState(1234);
   const [fullName, setfullName] = useState("");
   const [address, setaddress] = useState("");
@@ -17,6 +18,7 @@ function AddNewStudent() {
   const [motherName, setmotherName] = useState("");
   const [fatherName, setfatherName] = useState("");
   const [gradeData, setgradeData] = useState([]);
+  const [classArr, setclassArr] = useState([]);
 
   //   useEffect hook
   useEffect(() => {
@@ -26,6 +28,21 @@ function AddNewStudent() {
   }, []);
 
   gradeData.map((grade) => gradeArr.push(grade.grade));
+  console.log(gradeData);
+
+  const loadClass = (e) => {
+    clsArr = [];
+    setgrade(parseInt(e.target.value));
+    gradeData.map((grade) => {
+      if (grade.grade == e.target.value) {
+        console.log(grade.class);
+        grade.class.map((cls) => {
+          clsArr.push(cls.name);
+        });
+      }
+    });
+    setclassArr(clsArr);
+  };
 
   const sendDetails = (e) => {
     var checkEmpty = 0;
@@ -72,7 +89,7 @@ function AddNewStudent() {
     e.preventDefault();
     sendDetails(e);
   };
-
+  console.log(classArr);
   return (
     <div>
       <div className="AddNewStudent__header">
@@ -157,7 +174,7 @@ function AddNewStudent() {
                 <label htmlFor="grade">Grade</label>
                 <select
                   onChange={(e) => {
-                    setgrade(e.target.value);
+                    loadClass(e);
                   }}
                   name="grade"
                   id="grade"
@@ -170,7 +187,7 @@ function AddNewStudent() {
               </div>
               {/* /////////////////////////// */}
 
-              <div className="leftInside">
+              {/* <div className="leftInside">
                 <label htmlFor="class">Class</label>
                 <input
                   id="class"
@@ -180,6 +197,24 @@ function AddNewStudent() {
                     setcls(e.target.value.toUpperCase());
                   }}
                 />
+              </div> */}
+
+              <div className="leftInside">
+                <label htmlFor="class">Class</label>
+                <select
+                  onChange={(e) => {
+                    setcls(e.target.value);
+                  }}
+                  name="class"
+                  id="class"
+                >
+                  <option value="default">Select Class</option>
+                  {classArr.length != 0
+                    ? classArr.map((cls) => (
+                        <option value={cls}>Class {cls}</option>
+                      ))
+                    : null}
+                </select>
               </div>
 
               <div className="leftInside">
