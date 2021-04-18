@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import "./css/Login.css";
 import axios from "./axios";
 import { auth } from "./components/firebase";
@@ -9,13 +15,19 @@ function SignUp() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [error, seterror] = useState("");
+  const history = useHistory();
 
   const sendData = () => {
     console.log(email, password);
 
-    auth.createUserWithEmailAndPassword(email, password).catch((err) => {
-      seterror(err.message);
-    });
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        history.push("/");
+      })
+      .catch((err) => {
+        seterror(err.message);
+      });
   };
   return (
     <div className="container">
@@ -48,11 +60,10 @@ function SignUp() {
             placeholder="Password"
           />
 
-          <Link to={`/login`}>
-            <button className="btnInner" onClick={sendData}>
-              SignUp
-            </button>
-          </Link>
+          <button className="btnInner" onClick={sendData}>
+            SignUp
+          </button>
+
           <div className="text_container">
             <h4 className="text">
               Alredy have an account?{" "}

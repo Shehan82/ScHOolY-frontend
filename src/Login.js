@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +16,10 @@ function Login() {
   const [password, setpassword] = useState("");
   const [error, seterror] = useState("");
   const history = useHistory();
+
+  useEffect(() => {
+    console.log(auth.currentUser);
+  }, []);
 
   const sendData = () => {
     // console.log(email, password);
