@@ -71,7 +71,7 @@ function App() {
             </div>
 
             <div className="App__sideBarHome">
-              <Link style={{ textDecoration: "none" }} to="/">
+              <Link style={{ textDecoration: "none" }} to="/home">
                 <button
                   onClick={(e) => {
                     setActive({ active: e.target.value });

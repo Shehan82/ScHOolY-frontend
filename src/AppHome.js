@@ -10,9 +10,10 @@ function AppHome() {
     <Router>
       <div>
         <Switch>
-          <Route path="/" exact component={SignUp} />
           <Route path="/home" exact component={App} />
-          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={SignUp} />
+
+          <Route path="/" exact component={Login} />
         </Switch>
       </div>
     </Router>

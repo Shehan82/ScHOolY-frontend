@@ -60,7 +60,7 @@ input {
   margin-top: 30px;
 }
 
-button {
+.btnInner {
   margin-top: 30px;
   background-color: red;
   margin-bottom: 30px;
@@ -76,29 +76,33 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-::placeholder {
+.box_content ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: black;
   font-size: 15px;
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder {
+.box_content :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: black;
 }
 
-::-ms-input-placeholder {
+.box_content ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: black;
 }
 
-h4 {
+.text {
   color: white;
   font-weight: 300;
 }
 
-span {
-  text-decoration: underline;
+.btn {
+  color: white;
+}
+
+.spn {
+  text-decoration: none;
   cursor: pointer;
 }

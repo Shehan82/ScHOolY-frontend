@@ -48,21 +48,17 @@ function SignUp() {
             placeholder="Password"
           />
 
-          <Link className="btn" to={`/`}>
+          <Link to={`/login`}>
             <button className="btnInner" onClick={sendData}>
-              LogIn
+              SignUp
             </button>
           </Link>
           <div className="text_container">
             <h4 className="text">
-              Alredy SignUp?{" "}
-              <span
-                onClick={() => {
-                  console.log("Hellooo");
-                }}
-              >
-                Login here
-              </span>
+              Alredy have an account?{" "}
+              <Link className="btn" to="/">
+                <span className="spn">Login here</span>
+              </Link>
             </h4>
           </div>
         </div>
