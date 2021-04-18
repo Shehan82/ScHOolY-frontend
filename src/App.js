@@ -41,11 +41,6 @@ function App() {
       setSchool(res.data);
     });
 
-    axios.get("/getsID").then((res) => {
-      console.log(res.data);
-      setsID(res.data);
-    });
-
     console.log(auth.currentUser);
     auth.onAuthStateChanged((user) => {
       setuser(user);
