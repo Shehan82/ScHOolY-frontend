@@ -5,6 +5,7 @@ import App from "./App";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import { auth } from "./components/firebase";
+import ChangeStudentDetails from "./components/Home/ChangeStudentDetails";
 
 function AppHome() {
   console.log(auth.currentUser);
@@ -13,7 +14,8 @@ function AppHome() {
     <Router>
       <div>
         <Switch>
-          <Route path="/home" exact component={App} />
+          <Route path="/home" component={App} />
+          {/* <Route path="/home/updateStudent" component={ChangeStudentDetails} /> */}
 
           <Route path="/signup" exact component={SignUp} />
 

@@ -30,7 +30,7 @@ function ClassInside({ match }) {
       <div className="ClassInside__headerContainer">
         <div className="ClassInside__headerGrade">
           <Link
-            to={`/grade/${match.params.grade}`}
+            to={`/home/grade/${match.params.grade}`}
             style={{ color: "white", textDecoration: "none" }}
           >
             <h3>Grade {match.params.grade}</h3>
@@ -42,7 +42,7 @@ function ClassInside({ match }) {
 
         <div className="ClassInside__headerClass">
           <Link
-            to={`/grade/${match.params.grade}/${match.params.class}`}
+            to={`/home/grade/${match.params.grade}/${match.params.class}`}
             style={{ color: "white", textDecoration: "none" }}
           >
             <h3>Class {match.params.class}</h3>

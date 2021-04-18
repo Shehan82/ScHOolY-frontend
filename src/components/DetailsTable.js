@@ -49,7 +49,7 @@ function DetailsTable(props) {
               <TableCell align="left">{student.fullName}</TableCell>
               <TableCell align="center">
                 <Link
-                  to={`/grade/${props.grade}/${props.class}/${student.index}`}
+                  to={`/home/grade/${props.grade}/${props.class}/${student.index}`}
                 >
                   {console.log(student.index)}
                   <IconButton

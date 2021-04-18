@@ -73,7 +73,7 @@ function Login() {
           {/* </Link> */}
           <div className="text_container">
             <h4 className="text">
-              Doesn't have an account?{" "}
+              Don't have an account?{" "}
               <Link className="btn" to="/signup">
                 <span className="spn">SignUp here</span>
               </Link>

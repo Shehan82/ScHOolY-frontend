@@ -116,7 +116,7 @@ function App() {
                     textDecoration: "none",
                     margin: "10px 0px 10px 0px",
                   }}
-                  to={`/grade/${grade.grade}`}
+                  to={`/home/grade/${grade.grade}`}
                 >
                   <button
                     onClick={(e) => {
@@ -146,14 +146,14 @@ function App() {
                   <Route path="/home" exact component={Home} />
                 ) : null}
                 {/* <Route path="/home" exact component={Home} /> */}
-                <Route exact path="/grade/:grade" component={GradeBody} />
+                <Route exact path="/home/grade/:grade" component={GradeBody} />
                 <Route
                   exact
-                  path="/grade/:grade/:class"
+                  path="/home/grade/:grade/:class"
                   component={ClassInside}
                 />
                 <Route
-                  path="/grade/:grade/:class/:student"
+                  path="/home/grade/:grade/:class/:student"
                   component={StudentDetails}
                 />
                 <Route path="/home/addNewStudent" component={AddNewStudent} />

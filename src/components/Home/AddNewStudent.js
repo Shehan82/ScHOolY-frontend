@@ -17,26 +17,44 @@ function AddNewStudent() {
   const [fatherName, setfatherName] = useState("");
 
   const sendDetails = (e) => {
-    axios
-      .post("/create", {
-        index: `${index}`,
-        fullName: `${fullName}`,
-        address: `${address}`,
-        landNum: `${telePhone}`,
-        mobileNum: `${mobilePhone}`,
-        mothersName: `${motherName}`,
-        fathersName: `${fatherName}`,
-        grade: `${grade}`,
-        class: `${cls}`,
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data == "ok") {
-          alert("Register Successfully!");
-        } else {
-          alert("register unsuccess!");
-        }
-      });
+    var checkEmpty = 0;
+    var elements = document.getElementsByTagName("input");
+
+    for (var ii = 0; ii < elements.length; ii++) {
+      if (elements[ii].value == "") {
+        checkEmpty = checkEmpty + 1;
+      }
+    }
+
+    if (checkEmpty == 0) {
+      axios
+        .post("/create", {
+          index: `${index}`,
+          fullName: `${fullName}`,
+          address: `${address}`,
+          landNum: `${telePhone}`,
+          mobileNum: `${mobilePhone}`,
+          mothersName: `${motherName}`,
+          fathersName: `${fatherName}`,
+          grade: `${grade}`,
+          class: `${cls}`,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.data == "ok") {
+            alert("Register Successfully!");
+            for (var ii = 0; ii < elements.length; ii++) {
+              if (elements[ii].type == "text") {
+                elements[ii].value = "";
+              }
+            }
+          } else {
+            alert("register unsuccess!");
+          }
+        });
+    } else {
+      alert("Please fill all field");
+    }
   };
 
   const checkValidation = (e) => {
