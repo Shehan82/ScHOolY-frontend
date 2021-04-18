@@ -34,6 +34,7 @@ function App() {
   const [key, setkey] = useState(0);
   const [school, setSchool] = useState([]);
   const [sID, setsID] = useState("");
+  const [user, setuser] = useState({});
 
   useEffect(() => {
     axios.get("/grade").then((res) => {
@@ -46,6 +47,9 @@ function App() {
     });
 
     console.log(auth.currentUser);
+    auth.onAuthStateChanged((user) => {
+      setuser(user);
+    });
   }, []);
 
   const [active, setActive] = useState({
@@ -76,10 +80,10 @@ function App() {
   };
 
   const classes = useStyles();
-
+  console.log(user);
   return (
     <Router>
-      {auth.currentUser != null ? (
+      {user ? (
         <div className="App">
           {/* header */}
           <div className="App__header">
@@ -158,6 +162,7 @@ function App() {
                 />
                 <Route path="/home/addNewStudent" component={AddNewStudent} />
                 <Route
+                  exact
                   path="/home/updateStudent"
                   component={ChangeStudentDetails}
                 />
@@ -167,7 +172,7 @@ function App() {
                 <Route path="/home/removeGrade" component={RemoveGrade} />
                 <Route path="/home/addResults" component={AddResults} />
                 <Route
-                  path="/editStudentDetails/:index"
+                  path="/home/updateStudent/editStudentDetails/:index"
                   component={EditDetails}
                 />
               </Switch>
@@ -175,7 +180,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <h1>no permission buddy</h1>
+        <h1>fuck</h1>
       )}
     </Router>
   );

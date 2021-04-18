@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/AddNewStudent.css";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -6,6 +6,7 @@ import axios from "../../axios";
 import Button from "@material-ui/core/Button";
 
 function AddNewStudent() {
+  var gradeArr = [];
   const [index, setindex] = useState(1234);
   const [fullName, setfullName] = useState("");
   const [address, setaddress] = useState("");
@@ -15,6 +16,16 @@ function AddNewStudent() {
   const [cls, setcls] = useState("");
   const [motherName, setmotherName] = useState("");
   const [fatherName, setfatherName] = useState("");
+  const [gradeData, setgradeData] = useState([]);
+
+  //   useEffect hook
+  useEffect(() => {
+    axios.get("/grade").then((res) => {
+      setgradeData(res.data);
+    });
+  }, []);
+
+  gradeData.map((grade) => gradeArr.push(grade.grade));
 
   const sendDetails = (e) => {
     var checkEmpty = 0;
@@ -59,80 +70,7 @@ function AddNewStudent() {
 
   const checkValidation = (e) => {
     e.preventDefault();
-    // function isEmpty(myVar) {
-    //   if (myVar === "") {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
-
-    // function Empty() {
-    //   var index = `${e.target.elements.index.value}`;
-    //   var fullName = `${e.target.elements.fullName.value}`;
-    //   var address = `${e.target.elements.address.value}`;
-    //   var landNum = `${e.target.elements.landNum.value}`;
-    //   var mobileNum = `${e.target.elements.mobileNum.value}`;
-    //   var mothersName = `${e.target.elements.motherName.value}`;
-    //   var fathersName = `${e.target.elements.fatherName.value}`;
-    //   var grade = `${e.target.elements.grade.value}`;
-    //   var cls = `${e.target.elements.class.value}`;
-
-    //   var arr = [
-    //     index,
-    //     fullName,
-    //     address,
-    //     landNum,
-    //     mobileNum,
-    //     mothersName,
-    //     fathersName,
-    //     grade,
-    //     cls,
-    //   ];
-
-    //   var arr2 = [
-    //     "Index",
-    //     "FullName",
-    //     "Address",
-    //     "TelephoneNumber",
-    //     "MobileNumber",
-    //     "Mother'sName",
-    //     "Father'sName",
-    //     "Grade",
-    //     "Class",
-    //   ];
-    //   var emptyIndex = [];
-    //   var empty = [];
-    //   var length = arr.length;
-    //   for (let i = 0; i < length; i++) {
-    //     if (isEmpty(arr[i])) {
-    //       emptyIndex.push(i);
-    //     }
-    //   }
-
-    //   for (let i = 0; i < emptyIndex.length; i++) {
-    //     empty.push(arr2[emptyIndex[i]]);
-    //   }
-
-    //   console.log(empty);
-
-    //   if (empty.length == 0) {
-    //     return true;
-    //   } else if (empty.length == 1) {
-    //     alert(empty[0] + " field is empty!");
-    //   } else {
-    //     let allEmpty = "";
-    //     for (var j = 0; j < empty.length; j++) {
-    //       allEmpty = allEmpty + empty[j] + "  ";
-    //     }
-
-    //     alert(allEmpty + " fields are empty!");
-    //   }
-    // }
-
-    // if (Empty()) {
     sendDetails(e);
-    // }
   };
 
   return (
@@ -203,7 +141,7 @@ function AddNewStudent() {
                   }}
                 />
               </div>
-              <div className="leftInside">
+              {/* <div className="leftInside">
                 <label htmlFor="grade">Grade</label>
                 <input
                   id="grade"
@@ -213,7 +151,24 @@ function AddNewStudent() {
                     setgrade(e.target.value);
                   }}
                 />
+              </div> */}
+              {/* /////////////////////// */}
+              <div className="leftInside">
+                <label htmlFor="grade">Grade</label>
+                <select
+                  onChange={(e) => {
+                    setgrade(e.target.value);
+                  }}
+                  name="grade"
+                  id="grade"
+                >
+                  <option value="default">Select Grade</option>
+                  {gradeArr.map((grd) => (
+                    <option value={grd}>Grade {grd}</option>
+                  ))}
+                </select>
               </div>
+              {/* /////////////////////////// */}
 
               <div className="leftInside">
                 <label htmlFor="class">Class</label>

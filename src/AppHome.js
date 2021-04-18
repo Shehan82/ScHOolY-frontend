@@ -8,6 +8,10 @@ import { auth } from "./components/firebase";
 import ChangeStudentDetails from "./components/Home/ChangeStudentDetails";
 
 function AppHome() {
+  auth.onAuthStateChanged((user) => {
+    console.log(user);
+  });
+
   console.log(auth.currentUser);
   console.log("appHome");
   return (

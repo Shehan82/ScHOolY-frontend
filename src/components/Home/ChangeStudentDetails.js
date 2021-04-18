@@ -90,7 +90,9 @@ function ChangeStudentDetails() {
                       </TableCell>
                       <TableCell align="left">{student.fullName}</TableCell>
                       <TableCell align="center">
-                        <Link to={`/editStudentDetails/${student.index}`}>
+                        <Link
+                          to={`/home/updateStudent/editStudentDetails/${student.index}`}
+                        >
                           <IconButton
                             onClick={() => {
                               // if (
