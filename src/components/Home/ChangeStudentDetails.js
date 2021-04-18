@@ -47,7 +47,9 @@ function ChangeStudentDetails() {
             placeholder="Enter Student ID here . . ."
             onChange={(e) => {
               if (e.target.value == "") {
-                setsearchResult("");
+                axios.get("/findAll").then((res) => {
+                  setsearchResult(res.data);
+                });
               } else {
                 axios.get(`/find/${e.target.value}`).then((res) => {
                   setsearchResult(res.data);
