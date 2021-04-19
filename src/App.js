@@ -74,6 +74,8 @@ function App() {
     console.log(auth.currentUser);
   };
 
+  console.log(history);
+
   const classes = useStyles();
   console.log(user);
   return (

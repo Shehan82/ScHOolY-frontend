@@ -28,6 +28,7 @@ function Login() {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         history.push("/home");
+        console.log(history);
       })
       .catch((err) => {
         seterror(err.message);
