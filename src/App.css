@@ -36,8 +36,31 @@
   border-bottom: 1px solid #1c1f25;
   padding: 10px;
   display: flex;
+  padding-right: 20px;
   align-items: center;
+  /* justify-content: center; */
+}
+
+.user {
+  /* border: 2px solid red; */
+  width: fit-content;
+  height: 22px;
+  margin-left: -150px;
+  padding-right: 9px;
+  padding-left: 9px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: #40043c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.topic {
+  /* border: 2px solid blue; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .App__sideBar {

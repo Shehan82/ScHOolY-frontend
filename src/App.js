@@ -77,14 +77,15 @@ function App() {
   console.log(history);
 
   const classes = useStyles();
-  console.log(user);
+  console.log(user.email);
   return (
     <Router>
       {user ? (
         <div className="App">
           {/* header */}
           <div className="App__header">
-            <h3>ScHOolY</h3>
+            <h3 className="topic">ScHOolY</h3>
+            <div className="user">{user.email}</div>
           </div>
 
           {/* sidebar and app body */}
