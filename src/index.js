@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import AppHome from "./AppHome";
 import reportWebVitals from "./reportWebVitals";
-
+import Maintenance from "./maintenance";
 ReactDOM.render(
   <React.StrictMode>
-    <AppHome />
+    <Maintenance />
   </React.StrictMode>,
   document.getElementById("root")
 );
