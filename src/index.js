@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import Maintenance from "./maintenance";
 ReactDOM.render(
   <React.StrictMode>
-    <Maintenance />
+    <AppHome />
   </React.StrictMode>,
   document.getElementById("root")
 );
